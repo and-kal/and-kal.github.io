@@ -1,14 +1,17 @@
 {
-  "name": "Portfolio page for André",
-  "version": "1.0.0",
-  "description": "assignment by DCI Web Dev course",
-  "main": "index.js",
+  "name": "and-kal-github-io",
+  "version": "1.1.0",
+  "description": "André Kalnassy's portfolio page",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass /assets/style.scss /assets/style.css"
   },
   "keywords": [
     "portfolio"
   ],
   "author": "André Kalnassy",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.49.0"
+  }
 }

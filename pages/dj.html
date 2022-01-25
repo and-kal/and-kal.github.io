@@ -11,42 +11,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="/assets/style.css">
     <title>André Kalnassy // Staxl // things with tapes</title>
 </head>
 
 <body>
-    <header>
-        <nav class="container d-flex col justify-content-around mt-3" id="page-links">
-            <a class="mb-2 p-1 p-md-4" href="index.html">
-                Index
-            </a>
-            <a class="mb-2 p-1 p-md-4" href="livecoding.html">
-                Livecoding
-            </a>
-            <!-- <a class="mb-2 p-1 p-md-4" href="dj.html">
-                DJ
-            </a> -->
-            <a class="mb-2 p-1 p-md-4" href="tapes.html">
-                Tapes
-            </a>
-            <a class="mb-2 p-1 p-md-4" href="blog.html">
-                Blog
-            </a>
-            <a class="mb-2 p-1 p-md-4" href="bands.html">
-                Bands
-            </a>
-            <a class="mb-2 p-1 p-md-4" href="itr.html">
-                Shows
-            </a>
-            <!-- <a class="mb-2 p-1 p-md-4" href="#">
-                Designs
-            </a> -->
-            <a class="mb-2 p-1 p-md-4" href="net.html">
-                Imprint
-            </a>
-        </nav>
-    </header>
+    <header></header>
     <main>
         <div class="m-2 p-4">
             <h1 class="d-inline-block display-3 mb-4">Staxl</h1> is my DJ moniker
@@ -61,14 +31,16 @@
                         href="https://soundcloud.com/ghettonast">NVST</a>, <a
                         href="https://soundcloud.com/saulkregurk">Saulk Regurk</a> and a whole lot more. PRACHT really
                     is a great place for discovering and building networks, so definitely check <a
-                        href="https://subscribe.pracht-ev.net/">their newsletter</a> or <a
+                        href="https://subscribe.pracht-ev.net">their newsletter</a> or <a
                         href="https://www.facebook.com/groups/pracht/events">their Facebook</a> to be kept updated.</p>
                 <p>Since then I've been doing a couple of mixes for different online Radio stations and such, like: <a
                         href="http://nnwradio.com">New New World Radio</a>, <a
-                        href="https://soundcloud.com/radiosuperzoom">Radio Super Zoom</a>, or <a
-                        href="http://lahmacun.hu/">lahmacun radio</a>.</p>
+                        href="https://soundcloud.com/radiosuperzoom">Radio Super Zoom</a>, <a 
+                        href="https://soundcloud.com/mutantradio">Mutant Radio</a>, <a 
+                        href="https://n10.as">n10.as</a>, or <a
+                        href="http://lahmacun.hu">lahmacun radio</a>.</p>
                 <p>Other than that I've been playing some sets at events in PRACHT of course, at <a
-                        href="http://seanaps.net/">Seanaps Festival</a>, at <a href="https://mjut.me/">mjut</a>, but
+                        href="http://seanaps.net">Seanaps Festival</a>, at <a href="https://mjut.me/">mjut</a>, but
                     mostly in underground and DIY spaces that I can't link here, hehe.</p>
                 <p>Here's a pick of sets I did:</p>
                 <ul class="row px-1">
@@ -93,6 +65,15 @@
                 </ul>
             </div>
     </main>
+    <script>
+        fetch("/partials/nav.html")
+        .then(response => {
+            return response.text();
+        })
+        .then(data => {
+            document.querySelector("header").innerHTML = data;
+        });
+    </script>
 </body>
 
 </html>
