@@ -1,12 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:regular,italic,700,700italic&effect=3d&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Inknut+Antiqua:300,regular,500,600,700,800,900&display=swap);
 @font-face {
   font-family: "Cordata400";
   src: url("/assets/fonts/Web437_Cordata_PPC-400.woff") format("woff");
-}
-@font-face {
-  font-family: "Knewave";
-  src: url("/assets/fonts/Knewave.woff2") format("woff2");
 }
 * {
   box-sizing: border-box;
@@ -28,7 +23,7 @@ body {
 
 main {
   margin: 2rem auto;
-  border: 4px solid #111111;
+  border: 2px solid #111111;
   width: 92.5%;
   height: 100%;
   background-color: #f7f4dd;
@@ -36,11 +31,11 @@ main {
 }
 
 h1 {
-  font-family: "Inknut Antiqua", serif;
+  font-family: "Cordata400", serif;
 }
 
 h2 {
-  font-family: "Knewave", fantasy;
+  font-family: "Cordata400", fantasy;
 }
 
 /* <a> reset */
@@ -59,7 +54,7 @@ a:hover {
 }
 
 em {
-  font-family: "Inknut Antiqua", serif;
+  font-family: "Cordata400", serif;
   color: #05051f;
   font-weight: 300;
 }
@@ -161,39 +156,39 @@ a:visited {
 }
 
 #page-links a:hover:nth-child(0) {
-  transform: skew(-7deg);
+  transform: skew(-11deg);
 }
 #page-links a:hover:nth-child(1) {
-  transform: skew(-7deg);
-}
-#page-links a:hover:nth-child(2) {
-  transform: skew(-12deg);
-}
-#page-links a:hover:nth-child(3) {
   transform: skew(-14deg);
 }
+#page-links a:hover:nth-child(2) {
+  transform: skew(8deg);
+}
+#page-links a:hover:nth-child(3) {
+  transform: skew(7deg);
+}
 #page-links a:hover:nth-child(4) {
-  transform: skew(-6deg);
+  transform: skew(-13deg);
 }
 #page-links a:hover:nth-child(5) {
-  transform: skew(-7deg);
+  transform: skew(-6deg);
 }
 #page-links a:hover:nth-child(6) {
-  transform: skew(1deg);
-}
-#page-links a:hover:nth-child(7) {
-  transform: skew(5deg);
-}
-#page-links a:hover:nth-child(8) {
   transform: skew(9deg);
 }
+#page-links a:hover:nth-child(7) {
+  transform: skew(-3deg);
+}
+#page-links a:hover:nth-child(8) {
+  transform: skew(1deg);
+}
 #page-links a:hover:nth-child(9) {
-  transform: skew(15deg);
+  transform: skew(-12deg);
 }
 
 #about {
   background-color: #35c2fa;
-  border: 1px solid #111111;
+  border: 2px solid #111111;
   width: 70%;
 }
 
@@ -268,7 +263,7 @@ code em {
     background-color: var(--bs-teal);
 } */
 .card-title {
-  font-family: "Knewave", fantasy;
+  font-family: "Cordata400", fantasy;
 }
 
 #bands-pre {
