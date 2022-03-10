@@ -1,0 +1,130 @@
+<script>
+  import { blur } from "svelte/transition";
+  import { onMount } from "svelte";
+
+  const scrollUp = () => {
+    window.scrollTo(0, 0);
+  };
+
+  onMount(() => {
+    scrollUp();
+  });
+</script>
+
+<div transition:blur>
+  <h1>Staxl</h1>
+  is my DJ moniker
+  <div>
+    <p>
+      For a couple of years now I'm in active in a great and applaudable
+      mini-club in Leipzig called <a href="https://soundcloud.com/prachtleipzig"
+        >PRACHT</a
+      >, which is basically where I've been picking up DJing (more or less) -
+      simply by checking out how the others do it, and even more so by
+      constantly getting introduced to new and exciting styles of music. Some
+      DJs that I've seen playing there and found super inspiring were
+      <a href="https://soundcloud.com/cera-khin">Cera Khin</a>,
+      <a href="https://soundcloud.com/ossiamusic">Ossia</a>,
+      <a href="https://soundcloud.com/judithcrasser">Judith Crasser</a>
+      <a href="https://soundcloud.com/ghettonast">NVST</a>,
+      <a href="https://soundcloud.com/saulkregurk">Saulk Regurk</a>
+      and a whole lot more. PRACHT really is a great place for discovering and building
+      networks, so definitely check
+      <a href="https://subscribe.pracht-ev.net">their newsletter</a>
+      or
+      <a href="https://www.facebook.com/groups/pracht/events">their Facebook</a>
+      to be kept updated.
+    </p>
+    <p>
+      Since then I've been doing a couple of mixes for different online Radio
+      stations and such, like: <a href="http://nnwradio.com"
+        >New New World Radio</a
+      >, <a href="https://soundcloud.com/radiosuperzoom">Radio Super Zoom</a>,
+      <a href="https://soundcloud.com/mutantradio">Mutant Radio</a>,
+      <a href="https://n10.as">n10.as</a>, or
+      <a href="http://lahmacun.hu">lahmacun radio</a>.
+    </p>
+    <p>
+      Other than that I've been playing some sets at events in PRACHT of course,
+      at <a href="http://seanaps.net">Seanaps Festival</a>, at
+      <a href="https://mjut.me/">mjut</a>, but mostly in underground and DIY
+      spaces that I can't link here, hehe.
+    </p>
+    <p>Here's a pick of sets I did:</p>
+    <ul>
+      <li>
+        <iframe
+          title="DJ set with Valeska for States United"
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameborder="no"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1137482500&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        />
+      </li>
+      <li>
+        <iframe
+          title="DJ set with Valeska for UM LAUT crew"
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameborder="no"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1123993555&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        />
+      </li>
+      <li>
+        <iframe
+          width="100%"
+          height="120"
+          title="DJ set with Lena Lovette"
+          src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2FLenaLovete%2Flov_stxxl%2F"
+          frameborder="0"
+        />
+      </li>
+      <li>
+        <iframe
+          width="100%"
+          height="120"
+          title="Vinyl DJ set at Pracht"
+          src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Foptimooptimo%2Fstaxl-in-der-pracht-vinyl-set%2F"
+          frameborder="0"
+        />
+      </li>
+      <li>
+        <iframe
+          width="100%"
+          height="120"
+          title="DJ set at Apteka Wschodnie"
+          src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Foptimooptimo%2Fstaxl-dj-set-apteka-wschodnie%2F"
+          frameborder="0"
+        />
+      </li>
+      <li>
+        <iframe
+          title="DJ set at Conne Island"
+          width="100%"
+          height="120"
+          src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Foptimooptimo%2Fh%C3%B6%C3%A4h-b2b-staxl-djing-no-crap-flohmarkt-conne-island%2F"
+          frameborder="0"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+<footer>
+  <button on:click={() => scrollUp()}>⬆⬆⬆ Go back up!</button>
+</footer>
+
+<style>
+  button {
+    background-color: rgb(241, 216, 104);
+    padding: 0.3rem;
+    border: 2px solid black;
+    height: 2rem;
+  }
+  footer {
+    position: fixed;
+    bottom: 0.25rem;
+    right: 1rem;
+  }
+</style>
