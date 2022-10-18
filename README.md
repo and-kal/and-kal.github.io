@@ -14,12 +14,13 @@
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
+<a href="https://mstdn.social/@staxl" target="blank"><img align="center" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg" alt="mastodon" height="30" width="40" /></a>
+<a href="https://www.linkedin.com/in/andr%C3%A9-k-578791230/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin" height="30" width="40" /></a>
 <a href="https://codepen.io/callnasty" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="callnasty" height="30" width="40" /></a>
 <a href="https://dev.to/kallnasty" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/dev-dot-to.svg" alt="kallnasty" height="30" width="40" /></a>
 <a href="https://fb.com/li.almereyda" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="li.almereyda" height="30" width="40" /></a>
 <a href="https://instagram.com/staxl_andre" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="staxl_andre" height="30" width="40" /></a>
 <a href="https://www.youtube.com/c/https://www.youtube.com/channel/uca7ryjtbth_2jqg5yhzqvtq" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="https://www.youtube.com/channel/uca7ryjtbth_2jqg5yhzqvtq" height="30" width="40" /></a>
-  <a href="https://www.linkedin.com/in/andr%C3%A9-k-578791230/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
