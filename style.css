@@ -1,24 +1,84 @@
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:regular,italic,700,700italic&effect=3d&display=swap);
-@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
+/* @font-face {
+  font-family: "Drafting Mono";
+  src: url("/assets/fonts/DraftingMono-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("/assets/fonts/DraftingMono-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("/assets/fonts/DraftingMono-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("/assets/fonts/DraftingMono-SemiBoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: bold;
+} */
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-BoldItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 
 @font-face {
   font-family: "Cordata400";
   src: url("/assets/fonts/Web437_Cordata_PPC-400.woff") format("woff");
+  font-weight: 400;
 }
 
 :root {
   --black: #121212;
-  --white: #ece3e3;
-  --primary: #ff0044;
-  --secondary: #ff87a7;
-  --gray: #777777;
+  --white: #f8f6f6;
+  --primary: #ff87a7;
+  --secondary: #8a117a;
+  --tertiary: #3cff00;
+  --quaternary: #23deff;
+  --gray: #807f7f;
 }
 
 html,
 body {
   position: relative;
   scroll-behavior: smooth;
-  font-size: 18.5px;
+  font-size: 13px;
+  line-height: calc(13px * 2);
+  font-family: "Hack";
+  font-style: normal;
+  font-weight: normal;
 }
 
 body {
@@ -27,21 +87,42 @@ body {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  font-family: "IBM Plex Sans";
-  font-weight: 400;
   background-image: url(/assets/images/noisy-texture-100x100-o26-d24-c-117198-t0.png);
   background-repeat: repeat;
   background-size: 10%;
 }
 
-main {
-  margin: 2rem auto;
+#main-container {
+  margin: 2rem auto 1rem auto;
   max-width: 768px;
+  background-color: var(--black);
+  border: 2px solid var(--tertiary);
+  /* box-shadow: -8px -8px 25px 5px var(--white),
+    8px -8px 25px 5px var(--white), -8px 8px 25px 5px var(--white),
+    8px 8px 25px 5px var(--white); */
+}
+
+#main-container > * {
+  padding: 0.75rem 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  #main-container > * {
+    padding: 0.75rem;
+  }
 }
 
 /* <h1> and <a> resets */
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
@@ -49,17 +130,16 @@ h1 {
 a,
 a:visited {
   text-decoration: none;
-  color: var(--white);
-  padding: 0.15rem;
-  border: 3px solid var(--secondary);
-  background-color: var(--black);
+  color: var(--black);
+  padding: 0.1rem;
+  border-bottom: 2px solid var(--white);
+  /* background-color: var(--black); */
 }
 
 a:hover {
-  border: 3px solid var(--secondary);
   color: var(--black);
   background-color: var(--secondary);
-  transition: color 0.5s, background-color 0.5s;
+  transition: color 0.125s, background-color 0.125s;
 }
 
 /* list resets */
@@ -83,7 +163,7 @@ textarea {
   padding: 0.4em;
   margin: 0 0 0.5em 0;
   box-sizing: border-box;
-  border: 3px solid var(--gray);
+  border: 2px solid var(--gray);
   border-radius: 2px;
 }
 
@@ -109,20 +189,6 @@ button:focus {
   border-color: var(--gray);
 }
 
-main {
-  padding: 1.25rem;
-  background-color: var(--primary);
-  border: 3px solid var(--black);
-  box-shadow: -8px -8px 25px 5px var(--white),
-    8px -8px 25px 5px var(--white), -8px 8px 25px 5px var(--white),
-    8px 8px 25px 5px var(--white);
-}
-
-header {
-  position: sticky;
-  top: 0;
-}
-
 header nav {
   display: flex;
   flex-flow: row wrap;
@@ -130,48 +196,79 @@ header nav {
   margin: auto;
   max-width: 768px;
   width: 100%;
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
-header nav > :global(a) {
-  background-color: blue;
+header nav > a {
+  margin: 0.25rem;
+  background-color: var(--white);
+}
+
+header nav > a:first-child {
+  background-color: var(--black);
+  color: var(--tertiary);
+}
+
+main a,
+main a:visited,
+#copyright a,
+#copyright a:visited {
+  color: var(--white);
+  padding: 0.1rem;
+  border: 1px solid var(--secondary);
+  /* background-color: var(--black); */
+}
+
+main > section:not(:first-child) {
+  margin: 1.5rem 0;
+}
+
+main > section#currently {
+  border: 1px solid white;
+}
+
+main > section#currently > div {
+  border-bottom: 1px solid white;
+}
+main > section#currently > * {
+  padding: 1rem;
 }
 
 footer {
-  position: fixed;
-  bottom: 0.25rem;
-  right: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+  line-height: 2rem;
+  font-family: "Hack";
+  font-style: italic;
+  background-color: var(--gray);
 }
 
 footer button {
+  position: fixed;
+  bottom: 0.25rem;
+  right: 1rem;
   background-color: rgb(241, 216, 104);
   padding: 0.3rem;
   border: 2px solid var(--black);
   height: 2rem;
 }
 
-#intro span {
-  color: var(--black);
-  margin: 0 0.3rem 0 0;
-}
-
 #mailcode {
-  width: 40%;
   height: auto;
   padding: 0.5em;
-  border: 2px solid teal;
-  background-color: black;
+  /* border: 2px solid var(--secondary); */
+  background-color: var(--black);
 }
 
 #mailcode code {
-  color: rgb(23, 223, 223);
+  color: var(--tertiary);
   font-family: "Cordata400", monospace;
   font-size: 1.25rem;
 }
 
 code em {
-  color: rgb(159, 59, 230);
+  color: var(--primary);
 }
 
 #cursor {
@@ -182,15 +279,16 @@ code em {
 
 @keyframes cursorblink {
   to {
-    border: 3px solid varteal;
+    border: 2px solid varteal;
   }
 }
 
-#socialmedia {
-  margin: 1rem 0;
+footer h3 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  font-style: normal;
 }
 
-#socialmedia a {
-  font-size: 45px;
-  padding: 0.5rem;
+#copyright {
+  text-align: center;
 }
