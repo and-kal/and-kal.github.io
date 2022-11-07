@@ -66,8 +66,8 @@
   --primary: #ff87a7;
   --secondary: #8a117a;
   --tertiary: #3cff00;
-  --quaternary: rgb(241, 216, 104);
-  --gray: #807f7f;
+  --quaternary: rgb(247, 228, 59);
+  --gray: #585858;
 }
 
 html,
@@ -96,7 +96,7 @@ body {
   margin: 2rem auto 1rem auto;
   max-width: 768px;
   background-color: var(--black);
-  border: 2px solid var(--tertiary);
+  border: 2px solid var(--black);
   /* box-shadow: -8px -8px 25px 5px var(--white),
     8px -8px 25px 5px var(--white), -8px 8px 25px 5px var(--white),
     8px 8px 25px 5px var(--white); */
@@ -140,11 +140,8 @@ a:hover {
   transition: color 0.125s, background-color 0.125s;
 }
 
-/* list resets */
 ul {
-  list-style-type: none;
-  padding-inline-start: 0;
-  margin-block-start: 0;
+  list-style-type: kannada;
 }
 
 label {
@@ -186,7 +183,9 @@ header nav {
 header nav > a {
   margin: 0.25rem;
   background-color: var(--white);
-  color:var(--black);
+  color: var(--black);
+  border: 2px solid var(--black);
+  font-family: "Cordata400", monospace;
 }
 
 header nav > a:first-child {
@@ -194,9 +193,8 @@ header nav > a:first-child {
   color: var(--tertiary);
 }
 
-main a,
 #copyright a {
-  color: var(--white);
+  color: var(--black);
   padding: 0.1rem;
   border: 1px solid var(--secondary);
   /* background-color: var(--black); */
@@ -212,9 +210,11 @@ main > section#currently {
 
 main > section#currently > div {
   border-bottom: 1px solid white;
-}
-main > section#currently > * {
   padding: 1rem;
+}
+main > section#currently > ul {
+  margin: auto;
+  padding: 1rem  1rem  1rem 3.5rem;
 }
 
 footer {
@@ -230,7 +230,7 @@ footer {
 #mailcode {
   height: auto;
   padding: 0.5em;
-  /* border: 2px solid var(--secondary); */
+  border: 2px solid var(--tertiary);
   background-color: var(--black);
 }
 
@@ -263,6 +263,7 @@ footer h3 {
 }
 
 #copyright {
+  color: var(--black);
   text-align: center;
 }
 
@@ -270,6 +271,7 @@ footer h3 {
   position: fixed;
   bottom: 0.25rem;
   right: 1rem;
+  color: var(--black);
   background-color: var(--quaternary);
   padding: 0.3rem;
   border: 2px solid var(--black);
