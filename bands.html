@@ -1,16 +1,12 @@
-<script>
-    import { blur } from "svelte/transition";
-    import { onMount } from "svelte";
+---
+layout: _layout.liquid
+---
 
-onMount(() => {
-  window.scrollTo(0, 0);
-});
-</script>
-
-<div transition:blur >
+<div>
   <div>
-    Here's a bunch of <h1>Bands</h1>
-     that I play in:
+    Here's a bunch of
+    <h1>Bands</h1>
+    that I play in:
   </div>
   <div id="band-container">
     <div>
@@ -24,7 +20,8 @@ onMount(() => {
         <li>
           <a id="linkbox" href="https://ubac.bandcamp.com/album/berichte"
             >Berichte</a
-          > (2020 album, U-Bac)
+          >
+          (2020 album, U-Bac)
         </li>
         <li>
           <a id="linkbox" href="https://rdsrechh.bandcamp.com/album/souver-n"
@@ -49,14 +46,16 @@ onMount(() => {
         <li>
           <a id="linkbox" href="https://spleenliketheinnerorgan.bandcamp.com"
             >Live in Leipzig</a
-          > (2020 EP, self-released)
+          >
+          (2020 EP, self-released)
         </li>
         <li>
           <a
             id="linkbox"
             href="https://interceptoreditions.bandcamp.com/album/s-t"
             >self-titled</a
-          > (2021 album, Interceptor Editions)
+          >
+          (2021 album, Interceptor Editions)
         </li>
       </ul>
     </div>
@@ -65,10 +64,8 @@ onMount(() => {
       <div>
         <h2>Harry Di Terry</h2>
         <p>
-          My tape manipulation + drum machine duo with <a
-            id="linkbox"
-            href="https://kacktuss.glitch.me">Kacktuss</a
-          >
+          My tape manipulation + drum machine duo with
+          <a id="linkbox" href="https://kacktuss.glitch.me">Kacktuss</a>
         </p>
       </div>
       <ul>
@@ -79,7 +76,8 @@ onMount(() => {
             id="linkbox"
             href="https://soundcloud.com/harryditerry/hdtimie-271019-claudia-finalmaster"
             >H.D.T. x Staxl Oll</a
-          > (2020 split album, grvty.)
+          >
+          (2020 split album, grvty.)
         </li>
       </ul>
       <div>
@@ -117,40 +115,11 @@ onMount(() => {
         <li>
           <a id="linkbox" href="https://ontheair.bandcamp.com/album/sborno"
             >SBORNO (8 Hz x Suhan x Staxl Oll x Emile Nestle)</a
-          > (2019 split album, OnTheAir)
+          >
+          (2019 split album, OnTheAir)
         </li>
         <li>H.D.T. x Staxl Oll (2020 split album, grvty.)</li>
       </ul>
     </div>
   </div>
 </div>
-
-<style>
-  h1 {
-    margin: 0;
-    display: inline-block;
-  }
-  h2 {
-    margin: 0.5rem 0;
-  }
-  #band-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    gap: 2rem;
-  }
-  #band-container div {
-    object-fit: cover;
-    width: 100%;
-    max-height: 100%;
-  }
-  #band-container img {
-    object-fit: contain;
-    width: 100%;
-    border: 2px solid black;
-    margin: 0.5rem 0;
-  }
-  ul li {
-    line-height: 1.6em;
-  }
-</style>

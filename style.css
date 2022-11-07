@@ -66,7 +66,7 @@
   --primary: #ff87a7;
   --secondary: #8a117a;
   --tertiary: #3cff00;
-  --quaternary: #23deff;
+  --quaternary: rgb(241, 216, 104);
   --gray: #807f7f;
 }
 
@@ -126,18 +126,16 @@ h6 {
   margin: 0;
 }
 
-/* <a> reset */
-a,
-a:visited {
+a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--white);
   padding: 0.1rem;
   border-bottom: 2px solid var(--white);
   /* background-color: var(--black); */
 }
 
 a:hover {
-  color: var(--black);
+  color: var(--white);
   background-color: var(--secondary);
   transition: color 0.125s, background-color 0.125s;
 }
@@ -171,22 +169,8 @@ input:disabled {
   color: var(--gray);
 }
 
-button {
-  color: var(--gray);
-  background-color: var(--white);
-  outline: none;
-}
-
-button:disabled {
-  color: var(--gray);
-}
-
-button:not(:disabled):active {
-  background-color: var(--gray);
-}
-
-button:focus {
-  border-color: var(--gray);
+header {
+  background-color: var(--tertiary);
 }
 
 header nav {
@@ -202,6 +186,7 @@ header nav {
 header nav > a {
   margin: 0.25rem;
   background-color: var(--white);
+  color:var(--black);
 }
 
 header nav > a:first-child {
@@ -210,9 +195,7 @@ header nav > a:first-child {
 }
 
 main a,
-main a:visited,
-#copyright a,
-#copyright a:visited {
+#copyright a {
   color: var(--white);
   padding: 0.1rem;
   border: 1px solid var(--secondary);
@@ -242,16 +225,6 @@ footer {
   font-family: "Hack";
   font-style: italic;
   background-color: var(--gray);
-}
-
-footer button {
-  position: fixed;
-  bottom: 0.25rem;
-  right: 1rem;
-  background-color: rgb(241, 216, 104);
-  padding: 0.3rem;
-  border: 2px solid var(--black);
-  height: 2rem;
 }
 
 #mailcode {
@@ -291,4 +264,14 @@ footer h3 {
 
 #copyright {
   text-align: center;
+}
+
+#up-button {
+  position: fixed;
+  bottom: 0.25rem;
+  right: 1rem;
+  background-color: var(--quaternary);
+  padding: 0.3rem;
+  border: 2px solid var(--black);
+  height: 2rem;
 }

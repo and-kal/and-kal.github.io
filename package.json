@@ -1,0 +1,24 @@
+{
+  "name": "and-kal.github.io",
+  "version": "1.0.0",
+  "description": "Hi 👋, I'm André and this is my page.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/and-kal/and-kal.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/and-kal/and-kal.github.io/issues"
+  },
+  "homepage": "https://github.com/and-kal/and-kal.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2"
+  }
+}

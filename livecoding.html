@@ -1,26 +1,17 @@
-<script>
-  import { blur } from "svelte/transition";
-  import { onMount } from "svelte";
+---
+layout: _layout.liquid
+---
 
-  const scrollUp = () => {
-    window.scrollTo(0, 0);
-  };
-
-  onMount(() => {
-    scrollUp();
-  });
-</script>
-
-<div transition:blur>
+<div>
   <h1>Livecoding</h1>
   <p>
     I started engaging myself with coding languages for audio and video, and
     with livecoding languages in particular in 2020 when COVID-19 hit by getting
     into
     <a href="https://github.com/supercollider/supercollider">SuperCollider</a>
-    and related things. My approach is rather experimental and basically inspired
-    by the tools I use and by all the ideas that float around in the livecoding community
-    - and also by breakcore music a bit, hehe.
+    and related things. My approach is rather experimental and basically
+    inspired by the tools I use and by all the ideas that float around in the
+    livecoding community - and also by breakcore music a bit, hehe.
   </p>
   <p>
     I haven't done a hell lot of livecoding performances myself yet, but here's
@@ -33,46 +24,34 @@
       scrolling="no"
       frameborder="no"
       src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1173330352&color=%2338cd3d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-    />
+    ></iframe>
     <iframe
       title="Kunstraum D21 livecoding performance"
       height="166"
       scrolling="no"
       frameborder="no"
       src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/942412462&color=%2338cd3d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-    />
+    ></iframe>
 
     <div style="position: relative">
       <iframe
         title="Jam Van livecoding performance"
         src="https://player.vimeo.com/video/545885494?loop=1&portrait=0"
-        style="
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          "
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
-      />
+      ></iframe>
     </div>
     <div style="position: relative">
       <iframe
         src="https://www.youtube.com/embed/dOJVulN4uGo"
-        style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      "
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
         title="Longest Night 2021 livecoding performance"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
-      />
+      ></iframe>
     </div>
     <script src="https://player.vimeo.com/api/player.js"></script>
   </div>
@@ -108,9 +87,9 @@
     zero) budget and get results that are just as exciting and inspiring as what
     you'd get by using popular applications like Ableton Live, Serum etc. One of
     the great things about engaging one with these open-source tools is that you
-    will quickly be introduced to a vast <em>community</em> of people that work on
-    and with these applications and are ready to share their knowledge and expand
-    the possibilities of these apps.
+    will quickly be introduced to a vast <em>community</em> of people that work
+    on and with these applications and are ready to share their knowledge and
+    expand the possibilities of these apps.
   </p>
   <p>
     In my workshops, I present some of these software tools and share ideas on
@@ -124,50 +103,16 @@
     <a href="https://vcvrack.com/">VCV Rack</a> and others.
   </p>
   <p>
-    During the course of the workshop, I will give an introduction on how to <em
-      >record and arrange</em
-    >
+    During the course of the workshop, I will give an introduction on how to
+    <em>record and arrange</em>
     musical ideas with these software tools and people will learn how to
     <em>algorithmically</em>
     generate MIDI notes and sequences, be introduced to ways of creating and
-    <em>designing sounds</em> and hear about livecoding as one approach to presenting
-    your musical ideas on stage or in a live stream.
+    <em>designing sounds</em> and hear about livecoding as one approach to
+    presenting your musical ideas on stage or in a live stream.
   </p>
   <p>
-    Since I'm <em>relying a lot on open-source tools</em> and the communities around
-    it, I don't do these workshops commercially. ;)
+    Since I'm <em>relying a lot on open-source tools</em> and the communities
+    around it, I don't do these workshops commercially. ;)
   </p>
 </div>
-<footer>
-  <button on:click={() => scrollUp()}>⬆⬆⬆ Go back up!</button>
-</footer>
-
-<style>
-  #video-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #video-grid > * {
-    margin: 0.5rem;
-    width: 98%;
-  }
-  /* audio */
-  #video-grid > iframe {
-    grid-column: 1 / 3;
-  }
-  /* video */
-  #video-grid > div {
-    min-height: 300px;
-  }
-  button {
-    background-color: rgb(241, 216, 104);
-    padding: 0.3rem;
-    border: 2px solid black;
-    height: 2rem;
-  }
-  footer {
-    position: fixed;
-    bottom: 0.25rem;
-    right: 1rem;
-  }
-</style>
