@@ -68,14 +68,16 @@
   --tertiary: #3cff00;
   --quaternary: rgb(247, 228, 59);
   --gray: #585858;
+  
+  --fsz: 13px;
 }
 
 html,
 body {
   position: relative;
   scroll-behavior: smooth;
-  font-size: 13px;
-  line-height: calc(13px * 2);
+  font-size: var(--fsz);
+  line-height: calc(var(--fsz) * 1.75);
   font-family: "Hack";
   font-style: normal;
   font-weight: normal;
@@ -115,8 +117,6 @@ body {
   }
 }
 
-/* <h1> and <a> resets */
-
 h1,
 h2,
 h3,
@@ -124,6 +124,15 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+h1 {
+  display: inline-block;
+  /* text-align: center; */
+  padding: 1.5rem;
+  background-color: var(--primary);
+  color: var(--black);
+  border: 2px solid var(--white);
 }
 
 a {
@@ -141,7 +150,8 @@ a:hover {
 }
 
 ul {
-  list-style-type: kannada;
+  list-style-type: none;
+  padding: 0;
 }
 
 label {
@@ -181,16 +191,29 @@ header nav {
 }
 
 header nav > a {
-  margin: 0.25rem;
+  /* margin: 0.25rem; */
   background-color: var(--white);
   color: var(--black);
-  border: 2px solid var(--black);
   font-family: "Cordata400", monospace;
+  flex-grow: 1;
+  text-align: center;
+  border: 2px solid var(--black);
+  margin-bottom: -2px;
+  margin-right: -2px;
 }
 
-header nav > a:first-child {
+/* header nav > a:last-child {
+  border-right: 2px solid var(--black);
+} */
+
+header nav > a.active {
   background-color: var(--black);
   color: var(--tertiary);
+}
+
+#hero {
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
 #copyright a {
@@ -214,7 +237,11 @@ main > section#currently > div {
 }
 main > section#currently > ul {
   margin: auto;
-  padding: 1rem  1rem  1rem 3.5rem;
+  padding: 1rem  1rem  1rem 2.5rem;
+  list-style-type: kannada;
+}
+main > section#currently > ul li {
+  margin:0.5rem 0;
 }
 
 footer {
@@ -247,12 +274,12 @@ code em {
 #cursor {
   animation: cursorblink 0.75s steps(2, end) infinite;
   height: 1rem;
-  border: 0px solid varteal;
+  border: 0px solid var(--tertiary);
 }
 
 @keyframes cursorblink {
   to {
-    border: 2px solid varteal;
+    border: 2px solid var(--tertiary);
   }
 }
 
