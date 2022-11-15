@@ -64,9 +64,9 @@
   --black: #121212;
   --white: #f8f6f6;
   --primary: #ff87a7;
-  --secondary: #8a117a;
+  --secondary: #2215d3;
   --tertiary: #3cff00;
-  --quaternary: rgb(247, 228, 59);
+  --quaternary: rgb(255, 235, 123);
   --gray: #585858;
   
   --fsz: 13px;
@@ -129,17 +129,18 @@ h6 {
 h1 {
   display: inline-block;
   /* text-align: center; */
-  padding: 1.5rem;
-  background-color: var(--primary);
+  margin: 1.25rem 0 0.5rem 5px;
+  background-color: var(--white);
   color: var(--black);
-  border: 2px solid var(--white);
+  outline: 2px solid var(--white);
+  outline-offset: 5px;
 }
 
 a {
   text-decoration: none;
   color: var(--white);
   padding: 0.1rem;
-  border-bottom: 2px solid var(--white);
+  border-bottom: 1px dashed var(--white);
   /* background-color: var(--black); */
 }
 
@@ -212,8 +213,13 @@ header nav > a.active {
 }
 
 #hero {
-  font-size: 1.75rem;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+#intro span {
+  color: var(--tertiary);
 }
 
 #copyright a {
@@ -242,6 +248,14 @@ main > section#currently > ul {
 }
 main > section#currently > ul li {
   margin:0.5rem 0;
+}
+
+#music ul li {
+  margin: 1rem 0;
+}
+
+#music ul li p {
+  margin: 0;
 }
 
 footer {
@@ -295,9 +309,11 @@ footer h3 {
 }
 
 #up-button {
+  transform: rotateZ(-90deg);
   position: fixed;
   bottom: 0.25rem;
   right: 1rem;
+  font-size: 3rem;
   color: var(--black);
   background-color: var(--quaternary);
   padding: 0.3rem;
