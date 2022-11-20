@@ -250,12 +250,22 @@ main > section#currently > ul li {
   margin:0.5rem 0;
 }
 
+#music ul {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+}
+
 #music ul li {
   margin: 1rem 0;
 }
 
 #music ul li p {
   margin: 0;
+}
+
+#imprint-contact {
+  margin: 1rem 0;
 }
 
 footer {
