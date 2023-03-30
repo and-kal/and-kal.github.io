@@ -700,7 +700,7 @@ footer {
 }
 
 #mailcode code {
-  color: var(--secondary);
+  color: var(--white);
   font-family: "Shaston", monospace;
   font-size: 1.25rem;
 }
