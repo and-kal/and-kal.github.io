@@ -5,8 +5,9 @@ module.exports = function(eleventyConfig) {
       return `
         <a ${fileslug==="" ? "class='active'" : ""} href="/">Home</a>
         <a ${fileslug==="livecoding" ? "class='active'" : ""} href="/livecoding">Livecoding</a>
-        <a ${fileslug==="bands" ? "class='active'" : ""} href="/music">Music</a>
-        <a ${fileslug==="imprint" ? "class='active'" : ""} href="/imprint">Imprint</a>
+        <a ${fileslug==="music" ? "class='active'" : ""} href="/music">Music</a>
+        <a ${fileslug==="webdev" ? "class='active'" : ""} href="/webdev">Web Dev</a>
+        <a ${fileslug==="imprint" ? "class='active'" : ""} id="imprint" href="/imprint">Imprint</a>
       `; 
     });
     return {
