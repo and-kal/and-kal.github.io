@@ -464,6 +464,7 @@ body {
   background-image: url(/assets/images/noisy-texture-100x100-o26-d24-c-117198-t0.png);
   background-repeat: repeat;
   background-size: 10%;
+  overflow-x: hidden;
 }
 
 #main-container {
@@ -478,6 +479,40 @@ body {
 
 #main-container > * {
   padding: 0.75rem;
+}
+
+#main-container main{
+  position: relative;
+}
+#main-container main .featuredGif {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding:0;
+}
+
+#main-container main .featuredGif#miko {
+}
+
+#main-container main .featuredGif#metroid {
+  top: unset;
+  right: unset;
+  bottom: -2rem;
+  left: -200px;
+  animation: walk 15s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+#main-container main .featuredGif img {
+  height: 66px;
+}
+
+@keyframes walk {
+  0% {
+    left: -20vw;
+  }
+  100% {
+    left: 100vw;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -499,9 +534,10 @@ h6 {
 }
 
 h1 {
-  display: inline-block;
+  /* display: inline-block; */
+  width: fit-content;
   /* text-align: center; */
-  margin: 1rem 4px 0.5rem 4px;
+  margin: 1rem auto 0.5rem auto;
   padding: 1.5rem 3rem;
   background-color: var(--secondary);
   color: var(--primary);
@@ -709,12 +745,21 @@ section.projects > ul li a {
 
 footer {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+  justify-content: center;
   gap: 2rem;
   line-height: 2rem;
   font-family: "Hack";
   font-style: italic;
   background-color: var(--black);
+}
+
+footer #affiliations ul {
+  text-align: center;
+}
+
+footer #affiliations a {
+  border-bottom: none;
 }
 
 #mailcode {
