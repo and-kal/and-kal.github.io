@@ -472,6 +472,7 @@ body {
   max-width: calc(48 * var(--fsz));
   background-color: var(--primary);
   border: 0.25rem solid var(--secondary);
+  box-sizing: border-box;
   /* box-shadow: -8px -8px 25px 5px var(--secondary);,
     8px -8px 25px 5px var(--secondary);, -8px 8px 25px 5px var(--secondary);,
     8px 8px 25px 5px var(--secondary); */
@@ -491,19 +492,23 @@ body {
   padding:0;
 }
 
-#main-container main .featuredGif#miko {
-}
 
 #main-container main .featuredGif#metroid {
-  top: unset;
   right: unset;
-  bottom: -2rem;
-  left: -200px;
+  left: -20vw;
   animation: walk 15s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+#main-container main .featuredGif#cd {
+  top: 30rem;
+  right: 2rem;
+}
+#main-container main .featuredGif#cassette {
+  top: 60rem;
+  right: 2rem;
 }
 
 #main-container main .featuredGif img {
-  height: 66px;
+  max-height: 66px;
 }
 
 @keyframes walk {
@@ -518,11 +523,7 @@ body {
 @media screen and (max-width: 768px) {
   #main-container > * {
     padding: 0.75rem;
-  }
-  footer {
-    flex-flow: column;
-  }
-}
+}}
 
 h1,
 h2,
@@ -547,6 +548,7 @@ h1 {
 
 h2 {
   border: 0.25rem solid var(--secondary);
+  box-sizing: border-box;
   width: fit-content;
   padding: 0.25rem 0.5rem;
   margin-top: 1.5rem;
@@ -586,6 +588,7 @@ textarea {
   margin: 0 0 0.5em 0;
   box-sizing: border-box;
   border: 0.25rem solid var(--black);
+  box-sizing: border-box;
   border-radius: 2px;
 }
 
@@ -614,6 +617,7 @@ header nav > a {
   background-color: var(--white);
   color: var(--primary);
   border: 0.25rem solid var(--primary);
+  box-sizing: border-box;
   font-family: "Shaston", monospace;
   flex-grow: 1;
   text-align: center;
@@ -623,6 +627,13 @@ header nav > a {
 
 header nav > a:last-child {
   margin-right: 0;
+}
+
+@media screen AND (max-width: 768px) 
+{
+  header nav > a:last-child {
+    margin-right:  -0.25rem;
+  }  
 }
 
 header nav > a:hover {
@@ -672,6 +683,7 @@ main > section:not(:first-child) {
 
 section.projects {
   border: 0.25rem solid var(--secondary);
+  box-sizing: border-box;
   background-color: var(--white);
   color: var(--primary);
   padding: 1rem 1rem 0 1rem;
@@ -718,9 +730,10 @@ section.projects > ul li a {
   margin: 0;
 }
 
-#livecoding img {
+#livecoding .hero {
   width: 100%;
   border: 0.25rem solid var(--secondary);
+  box-sizing: border-box;
 }
 
 #livecoding a {
@@ -739,38 +752,43 @@ section.projects > ul li a {
   width: auto;
 }
 
-#imprint-contact {
+#imprint aside img {
+  width: 100%;
+  margin: auto;
+  border: 0.25rem solid var(--secondary);
+  box-sizing: border-box;
+}
+
+#imprint #imprint-contact {
   margin: 1rem 0;
 }
 
 footer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: start;
+  align-content: center;
   gap: 2rem;
   line-height: 2rem;
   font-family: "Hack";
   font-style: italic;
   background-color: var(--black);
 }
-
-footer #affiliations ul {
-  text-align: center;
+footer #email {
+  /* text-align: center; */
 }
 
-footer #affiliations a {
-  border-bottom: none;
-}
-
-#mailcode {
+footer #email #mailcode {
   height: auto;
   padding: 0.5rem;
   margin: 0.5rem 0;
   border: 0.25rem solid var(--secondary);
+  box-sizing: border-box;
   background-color: var(--primary);
+  text-align: left;
 }
 
-#mailcode code {
+footer #email #mailcode code {
   color: var(--white);
   font-family: "Shaston", monospace;
   font-size: 1.5rem;
@@ -779,6 +797,24 @@ footer #affiliations a {
 code em {
   color: var(--secondary);
 }
+
+footer #affiliations {
+  grid-column: 1 / 3;
+  text-align: center
+}
+
+footer #affiliations ul {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  }
+footer #affiliations ul a {
+  border-bottom: none;
+}
+footer #affiliations ul a img {
+  max-width: 88px;
+}
+
 
 main em {
   font-family: "Runescape Fancy";
@@ -795,6 +831,7 @@ main em {
 @keyframes cursorblink {
   to {
     border: 0.25rem solid var(--secondary);
+    box-sizing: border-box;
   }
 }
 
@@ -828,6 +865,7 @@ footer h3 {
   color: var(--primary);
   padding: 0.25rem;
   border: 0.25rem solid var(--primary);
+  box-sizing: content-box;
   height: 2rem;
   background-color: var(--secondary);
 }
