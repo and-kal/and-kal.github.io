@@ -4,6 +4,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addLiquidShortcode("header-active", function(fileslug) { 
       return `
         <a ${fileslug==="" ? "class='active'" : ""} href="/">Home</a>
+        <!-- <a ${fileslug==="blog" ? "class='active'" : ""} href="/blog">Blog</a> -->
         <a ${fileslug==="livecoding" ? "class='active'" : ""} href="/livecoding">Livecoding</a>
         <a ${fileslug==="music" ? "class='active'" : ""} href="/music">Music</a>
         <a ${fileslug==="webdev" ? "class='active'" : ""} href="/webdev">Web Dev</a>
