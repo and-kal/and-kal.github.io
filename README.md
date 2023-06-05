@@ -1,22 +1,21 @@
 <h1 align="center">Hi 👋, I'm André and this is my page.</h1>
-<h3 align="center">Under my legal name I'm an aspiring web developer -based in Leipzig.</h3>
-<h3 align="center">Under my moniker Staxl I do music-related stuff.</h3>
+<h2 align="center">Under my legal name I'm an aspiring web developer based in Leipzig, Germany.</h3>
+<h2 align="center">Under my moniker Staxl I do music-related stuff.</h3>
 
-- 🔭 I’m recently finished a [training programme at Digital Career Institute](https://digitalcareerinstitute.org/) for full-stack web developers and am now working as a Junior PHP Developer.
+🔭 I've recently finished a [training programme at Digital Career Institute](https://digitalcareerinstitute.org/) for full-stack web developers and am now working as a Junior PHP Developer.
 
-- 🌱 At the moment I'm primarily learning **NextJS, SvelteKit, C#, and... PHP**.
+📌 At the moment I'm primarily learning **NextJS, SvelteKit, C#, and... PHP**.
 
-- 👯 I’m looking to collaborate on **web projects, microcontroller projects, A/V livecoding-related stuff, real-time audio synthesis and algorithmic composition, and machine learning in sound-design contexts**.
+👾 I'm looking to collaborate on **web projects, microcontroller projects, A/V livecoding-related stuff, and real-time audio synthesis and algorithmic composition, fediverse stuff and other self-hosting stuff.**
 
-- 👨‍💻 My projects are available at [https://github.com/and-kal/](https://github.com/and-kal/)
+👨‍💻 My projects are available at [https://github.com/and-kal/](https://github.com/and-kal/)
 
-- 💬 Ask me about **Supercollider and livecoding environments, noise rock music, or old movies**.
+💬 Ask me about **Supercollider and livecoding, Japanese noise rock music, or movies from the 1940s**.
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://sonomu.club/@staxl" target="blank"><img align="center" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg" alt="mastodon" height="30" width="40" /></a>
-<a href="https://www.linkedin.com/in/andr%C3%A9-k-578791230/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin" height="30" width="40" /></a>
-<a href="https://codepen.io/callnasty" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="callnasty" height="30" width="40" /></a>
+<a href="https://www.linkedin.com/in/andr%C3%A9-k-578791230/" target="blank"><img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-plain.svg" alt="linkedin" height="30" width="40" /></a>
 <a href="https://dev.to/kallnasty" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/dev-dot-to.svg" alt="kallnasty" height="30" width="40" /></a>
 </p>
 
@@ -57,6 +56,8 @@
   <a href="https://github.com/vercel/next.js/" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="nextjs" width="40" height="40"/>
   </a>
   <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/hugo/hugo-original.svg" alt="Hugo" width="40" height="40"/>
+  </a>
+  <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" width="40" height="40"/>
   </a>
 </p>
 
