@@ -1,4 +1,7 @@
 module.exports = function(eleventyConfig) {
+    eleventyConfig.ignores.add("README.md");
+    eleventyConfig.ignores.add(".gitignore");
+    
     eleventyConfig.addPassthroughCopy('./*.css');
     eleventyConfig.addPassthroughCopy('./assets');
     eleventyConfig.addLiquidShortcode("header-active", function(fileslug) { 
