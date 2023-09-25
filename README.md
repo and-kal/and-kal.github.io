@@ -1,16 +1,16 @@
 <h1 align="center">Hi 👋, I'm André and this is my page.</h1>
-<h2 align="center">Under my legal name I'm an aspiring web developer based in Leipzig, Germany.</h3>
+<h2 align="center">Under my legal name I'm a full-stack web developer based in Leipzig, Germany.</h3>
 <h2 align="center">Under my moniker Staxl I do music-related stuff.</h3>
 
-🔭 I've recently finished a [training programme at Digital Career Institute](https://digitalcareerinstitute.org/) for full-stack web developers and am now working as a Junior PHP Developer.
+🔭 I'm an alumni of the [Digital Career Institute](https://digitalcareerinstitute.org/) full-stack web developer programme and am currently working as a Junior PHP Developer.
 
-📌 At the moment I'm primarily learning **NextJS, SvelteKit, C#, and... PHP**.
+📌 At the moment I'm primarily learning **NextJS, SvelteKit, Haskell, Lisp, and still some PHP**.
 
-👾 I'm looking to collaborate on **web projects, microcontroller projects, A/V livecoding-related stuff, and real-time audio synthesis and algorithmic composition, fediverse stuff and other self-hosting stuff.**
+👾 I'm looking to collaborate on **web projects, microcontroller projects, A/V coding-related stuff, and real-time audio synthesis and algorithmic composition, self-hosting stuff.**
 
 👨‍💻 My projects are available at [https://github.com/and-kal/](https://github.com/and-kal/)
 
-💬 Ask me about **Supercollider and livecoding, Japanese noise rock music, or movies from the 1940s**.
+💬 Ask me about **algoraves and livecoding, Japanese noise rock music, or movies from the 1940s**.
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
@@ -25,14 +25,16 @@
   </a> 
   <a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/>
   </a> 
-  <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
-  </a> 
   <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/>
   </a> 
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
   </a> 
   <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
   </a> 
+  <a href="http://remix.run" target="_blank" rel="noopener noreferrer"> <img src="https://avatars.githubusercontent.com/u/72662859" alt="remix" width="40" height="40"/>
+  </a> 
+  <a href="https://github.com/vercel/next.js/" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="nextjs" width="40" height="40"/>
+  </a>
   <a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="express" width="40" height="40"/>
   </a> 
   <a href="https://svelte.dev" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/svelte/svelte-original-wordmark.svg" alt="svelte" width="40" height="40"/>
@@ -52,8 +54,6 @@
   <a href="https://www.photoshop.com/en" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/>
   </a>  
   <a href="https://github.com/11ty/eleventy" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/eleventy/eleventy-original.svg" alt="11ty" width="40" height="40"/>
-  </a>
-  <a href="https://github.com/vercel/next.js/" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="nextjs" width="40" height="40"/>
   </a>
   <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/hugo/hugo-original.svg" alt="Hugo" width="40" height="40"/>
   </a>
@@ -77,6 +77,12 @@
     </a>
     <a href="https://www.haskell.org/" target="_blank" rel="noopener noreferrer">
     <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Haskell-Logo.svg" alt="haskell" width="40" height="40"/>
+    </a>    
+    <a href="https://cycling74.com/products/max" target="_blank" rel="noopener noreferrer">
+    <img src="https://docs.cycling74.com/static/img/max8_logo.svg" alt="Max/MSP/Jitter" width="40" height="40"/>
+    </a>
+    <a href="https://lispcookbook.github.io/cl-cookbook/" target="_blank" rel="noopener noreferrer">
+    <img src="https://lispcookbook.github.io/cl-cookbook/assets/cl-logo-blue.png" alt="Lisp" width="40" height="40"/>
     </a>
     <a href="https://www.opengl.org/" target="_blank" rel="noopener noreferrer">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/opengl/opengl-original.svg" alt="opengl" width="40" height="40"/>
