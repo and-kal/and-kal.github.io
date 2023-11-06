@@ -648,6 +648,7 @@ header nav > a#imprint {
 }
 
 #hero {
+  max-width: 100%;
   font-size: 1.5rem;
   font-family: "Shaston";
   margin: 1rem 0;
