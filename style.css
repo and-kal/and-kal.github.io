@@ -743,6 +743,10 @@ section.projects > ul li a {
   width: 100%;
 }
 
+#livecoding #video-grid iframe {
+  margin: auto;
+}
+
 @media screen and (max-width: 769px) {
   #livecoding #video-grid {
     grid-template-columns: 1fr;
