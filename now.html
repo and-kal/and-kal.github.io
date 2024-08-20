@@ -1,0 +1,16 @@
+---
+layout: _layout.liquid
+---
+
+<main id="now">
+    <h1>The Now page</h1>
+    Here's a bit what I've been up to recently:
+    <section class="activity" id="books">
+        <h2>Reading:</h2>
+        {% bookwyrm %}
+    </section>
+    <section class="activity" id="movies">
+        <h2>Watching:</h2>
+        {% letterboxd %}
+    </section>
+</main>

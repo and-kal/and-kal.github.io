@@ -780,10 +780,11 @@ footer {
   font-style: italic;
   background-color: var(--black);
 }
+/* 
 footer #email {
-  /* text-align: center; */
+  text-align: center; 
 }
-
+*/
 footer #email #mailcode {
   height: auto;
   padding: 0.5rem;
@@ -873,4 +874,15 @@ footer h3 {
   box-sizing: content-box;
   height: 2rem;
   background-color: var(--secondary);
+}
+
+#now .activity:not(#books) div {
+  display: inline-flex;
+  align-items: center;
+}
+#now .activity div *:not(:first-child) {
+  margin-left: 1rem;
+}
+#now .activity img {
+  max-height: 150px;
 }
