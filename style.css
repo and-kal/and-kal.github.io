@@ -876,6 +876,13 @@ footer h3 {
   background-color: var(--secondary);
 }
 
+#now .activity {
+  display: flex;
+  flex-flow: column nowrap;
+}
+#now .activity h2 {
+  margin-bottom: 1rem;
+}
 #now .activity:not(#books) div {
   display: inline-flex;
   align-items: center;

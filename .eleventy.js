@@ -17,6 +17,8 @@ function getRSSContent(dataAsJson) {
 }
 
 module.exports = function (eleventyConfig) {
+  require("dotenv").config();
+
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add(".gitignore");
 
@@ -74,6 +76,23 @@ module.exports = function (eleventyConfig) {
         return latestActivityElements;
       });
     return latest;
+  });
+  eleventyConfig.addLiquidShortcode("lastfm", async function () {
+    /* get weekly top artists */
+    const RSS_URL = `http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=supermandre&api_key=${process.env.API_KEY}&format=json`;
+
+    const weeklyTopArtists = await fetch(RSS_URL)
+      .then((res) => res.json())
+      .then((json) => {
+        const artists = json.weeklyartistchart.artist;
+        return artists.map((artist, idx) => {
+          if (idx < 5) {
+            const htmlElement = "<div>" + artist.name + "</div>";
+            return htmlElement;
+          }
+        });
+      });
+    return weeklyTopArtists;
   });
 
   return {
