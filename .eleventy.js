@@ -79,9 +79,10 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addLiquidShortcode("lastfm", async function () {
     /* get weekly top artists */
-    const RSS_URL = `http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=supermandre&api_key=${process.env.API_KEY}&format=json`;
+    const RSS_URL_1 = `http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=supermandre&api_key=${process.env.API_KEY}&format=json`;
+    const RSS_URL_2 = `http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=supermandre&api_key=${process.env.API_KEY}&format=json`;
 
-    const weeklyTopArtists = await fetch(RSS_URL)
+    const weeklyTopArtists = await fetch(RSS_URL_1)
       .then((res) => res.json())
       .then((json) => {
         const artists = json.weeklyartistchart.artist;
@@ -92,7 +93,26 @@ module.exports = function (eleventyConfig) {
           }
         });
       });
-    return weeklyTopArtists;
+    const lovedTracks = await fetch(RSS_URL_2)
+      .then((res) => res.json())
+      .then((json) => {
+        const artists = json.lovedtracks.track;
+        return artists.map((track, idx) => {
+          if (idx < 10) {
+            const htmlElement =
+              "<div>" +
+              track.artist.name +
+              ": " +
+              track.name +
+              // `<img src='${track.image[0]["#text"]}'>` +
+              "</div>";
+            return htmlElement;
+          }
+        });
+      });
+
+    // return [...weeklyTopArtists, ...lovedTracks];
+    return [...lovedTracks];
   });
 
   return {
