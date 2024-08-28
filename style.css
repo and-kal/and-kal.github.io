@@ -908,4 +908,6 @@ footer h3 {
   background-clip: text;
   background-image: linear-gradient(-40deg, var(--secondary), var(--white));
   box-sizing: border-box;
+  margin-top: 1rem;
+  display: block;
 }
