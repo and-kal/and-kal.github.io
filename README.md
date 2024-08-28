@@ -156,4 +156,8 @@ audio synthesis and algorithmic composition, self-hosting stuff.**
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
             alt="csharp" width="40" height="40" />
     </a>
+    <a href="https://lua.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://github.com/devicons/devicon/raw/master/icons/lua/lua-original.svg" alt="lua" width="40"
+            height="40" />
+    </a>
 </p>
