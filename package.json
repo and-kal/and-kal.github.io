@@ -20,5 +20,9 @@
   "homepage": "https://and-kal.github.io",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "xml-js": "^1.6.11"
   }
 }

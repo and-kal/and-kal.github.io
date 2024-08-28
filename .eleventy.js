@@ -1,4 +1,24 @@
+function getRSSContent(dataAsJson) {
+  return dataAsJson.elements[0].elements[0].elements.reduce((memo, elem) => {
+    if (elem.name === "item") {
+      const html = elem.elements.reduce((a, b) => {
+        if (b.name === "description") {
+          // TODO: add date for bookwyrm fetch
+          a = b.elements[0].text || b.elements[0].cdata;
+        }
+        return a;
+      });
+      const cleanedHtml = html.split("staxl ")[1] || html;
+      memo.push(`<div>${cleanedHtml}</div>`);
+    }
+    // get the latest 5 elements
+    return memo.slice(0, 5);
+  }, []);
+}
+
 module.exports = function (eleventyConfig) {
+  require("dotenv").config();
+
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add(".gitignore");
 
@@ -7,8 +27,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidShortcode("header-active", function (fileslug) {
     return `
         <a ${
+          fileslug === "" || fileslug === "/" ? "class='active'" : ""
+        } href="/">Home</a>
+        <a ${
           fileslug === "" || fileslug === "/now" ? "class='active'" : ""
-        } href="/">Now</a>
+        } href="/now">Now</a>
         <!-- <a ${
           fileslug === "blog" ? "class='active'" : ""
         } href="/blog">Blog</a> -->
@@ -26,6 +49,72 @@ module.exports = function (eleventyConfig) {
         } id="imprint" href="/imprint">Imprint</a>
       `;
   });
+  eleventyConfig.addLiquidShortcode("letterboxd", async function () {
+    const convert = require("xml-js");
+    /* get latest items via RSS */
+    const RSS_URL = `https://letterboxd.com/staxl/rss`;
+
+    const latest = await fetch(RSS_URL)
+      .then((response) => response.text())
+      .then((str) => {
+        dataAsJson = JSON.parse(convert.xml2json(str));
+        const latestActivityElements = getRSSContent(dataAsJson);
+        return latestActivityElements;
+      });
+    return latest;
+  });
+  eleventyConfig.addLiquidShortcode("bookwyrm", async function () {
+    const convert = require("xml-js");
+    /* get latest items via RSS */
+    const RSS_URL = `https://bookwyrm.social/user/staxl/rss`;
+
+    const latest = await fetch(RSS_URL)
+      .then((response) => response.text())
+      .then((str) => {
+        dataAsJson = JSON.parse(convert.xml2json(str));
+        const latestActivityElements = getRSSContent(dataAsJson);
+        return latestActivityElements;
+      });
+    return latest;
+  });
+  eleventyConfig.addLiquidShortcode("lastfm", async function () {
+    /* get weekly top artists */
+    const RSS_URL_1 = `http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=supermandre&api_key=${process.env.API_KEY}&format=json`;
+    const RSS_URL_2 = `http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=supermandre&api_key=${process.env.API_KEY}&format=json`;
+
+    const weeklyTopArtists = await fetch(RSS_URL_1)
+      .then((res) => res.json())
+      .then((json) => {
+        const artists = json.weeklyartistchart.artist;
+        return artists.map((artist, idx) => {
+          if (idx < 5) {
+            const htmlElement = "<div>" + artist.name + "</div>";
+            return htmlElement;
+          }
+        });
+      });
+    const lovedTracks = await fetch(RSS_URL_2)
+      .then((res) => res.json())
+      .then((json) => {
+        const artists = json.lovedtracks.track;
+        return artists.map((track, idx) => {
+          if (idx < 10) {
+            const htmlElement =
+              "<div>" +
+              track.artist.name +
+              ": " +
+              track.name +
+              // `<img src='${track.image[0]["#text"]}'>` +
+              "</div>";
+            return htmlElement;
+          }
+        });
+      });
+
+    // return [...weeklyTopArtists, ...lovedTracks];
+    return [...lovedTracks];
+  });
+
   return {
     passthroughFileCopy: true,
   };
