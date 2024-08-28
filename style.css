@@ -554,7 +554,9 @@ h2 {
   box-sizing: border-box;
   width: fit-content;
   padding: 0.25rem 0.5rem;
-  margin-top: 1.5rem;
+}
+h2:not(:first-child) {
+  margin-top: 1rem;
 }
 
 a {
@@ -780,10 +782,11 @@ footer {
   font-style: italic;
   background-color: var(--black);
 }
+/* 
 footer #email {
-  /* text-align: center; */
+  text-align: center; 
 }
-
+*/
 footer #email #mailcode {
   height: auto;
   padding: 0.5rem;
@@ -873,4 +876,36 @@ footer h3 {
   box-sizing: content-box;
   height: 2rem;
   background-color: var(--secondary);
+}
+
+#now .activity {
+  display: flex;
+  flex-flow: column nowrap;
+}
+#now .activity h2 {
+  margin-bottom: 1rem;
+}
+#now .activity:not(#books) div {
+  display: inline-flex;
+  align-items: center;
+}
+#now .activity div *:not(:first-child) {
+  margin-left: 1rem;
+}
+#now .activity img {
+  max-height: 150px;
+}
+
+#now sub {
+  margin-top: 1rem;
+}
+#now #subheadline {
+  -webkit-box-decoration-break: clone;
+  /* color: rgb(104, 178, 42); */
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  background-clip: text;
+  background-image: linear-gradient(-40deg, var(--secondary), var(--white));
+  box-sizing: border-box;
 }
