@@ -12,7 +12,7 @@ function getRSSContent(dataAsJson) {
       memo.push(`<div>${cleanedHtml}</div>`);
     }
     // get the latest 5 elements
-    return memo.slice(0, 5);
+    return memo.slice(0, 8);
   }, []);
 }
 
@@ -56,7 +56,14 @@ module.exports = function (eleventyConfig) {
       .then((response) => response.text())
       .then((str) => {
         dataAsJson = JSON.parse(convert.xml2json(str));
-        const latestActivityElements = getRSSContent(dataAsJson);
+        const latestActivityElements = getRSSContent(dataAsJson)
+          .filter((div) => {
+            // only show elements with an image
+            return /<img src/gi.test(div);
+          })
+          .map((div) => {
+            return `<code>${div}</code>`;
+          });
         return latestActivityElements;
       });
     return latest;
@@ -70,7 +77,9 @@ module.exports = function (eleventyConfig) {
       .then((response) => response.text())
       .then((str) => {
         dataAsJson = JSON.parse(convert.xml2json(str));
-        const latestActivityElements = getRSSContent(dataAsJson);
+        const latestActivityElements = getRSSContent(dataAsJson).map((div) => {
+          return `<code>${div}</code>`;
+        });
         return latestActivityElements;
       });
     return latest;
@@ -85,7 +94,7 @@ module.exports = function (eleventyConfig) {
       .then((json) => {
         const artists = json.weeklyartistchart.artist;
         return artists.map((artist, idx) => {
-          if (idx < 5) {
+          if (idx < 8) {
             const htmlElement = "<div>" + artist.name + "</div>";
             return htmlElement;
           }
@@ -96,14 +105,14 @@ module.exports = function (eleventyConfig) {
       .then((json) => {
         const artists = json.lovedtracks.track;
         return artists.map((track, idx) => {
-          if (idx < 10) {
+          if (idx < 8) {
             const htmlElement =
-              "<div>" +
+              "<code>" +
               track.artist.name +
               ": " +
               track.name +
               // `<img src='${track.image[0]["#text"]}'>` +
-              "</div>";
+              "</code>";
             return htmlElement;
           }
         });

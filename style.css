@@ -782,22 +782,22 @@ footer {
   font-style: italic;
   background-color: var(--black);
 }
-/* 
-footer #email {
-  text-align: center; 
-}
-*/
-footer #email #mailcode {
+
+#code {
   height: auto;
   padding: 0.5rem;
   margin: 0.5rem 0;
   border: 0.25rem solid var(--secondary);
   box-sizing: border-box;
-  background-color: var(--primary);
+  background-color: var(--black);
   text-align: left;
 }
 
-footer #email #mailcode code {
+footer #email #code {
+  background-color: var(--primary);
+}
+
+#code code {
   color: var(--white);
   font-family: "Shaston", monospace;
   font-size: 1.5rem;
@@ -824,7 +824,7 @@ footer #affiliations ul a img {
   max-width: 88px;
 }
 
-main em {
+main:not(#now) em {
   font-family: "Runescape Fancy";
   font-size: 2rem;
 }
@@ -885,19 +885,28 @@ footer h3 {
 #now .activity h2 {
   margin-bottom: 1rem;
 }
-#now .activity:not(#books) div {
+#now .activity:not(#books) #code {
+  display: inline-flex;
+  align-items: start;
+}
+#now .activity:not(#books) #code div {
   display: inline-flex;
   align-items: center;
 }
-#now .activity div *:not(:first-child) {
+#now .activity#music #code,
+#now .activity#movies #code {
+  flex-direction: column;
+}
+#now .activity div > p:not(:first-child) {
   margin-left: 1rem;
 }
 #now .activity img {
   max-height: 150px;
 }
 
-#now sub {
-  margin-top: 1rem;
+#now sub,
+#now code {
+  margin: 1rem 0;
 }
 #now #subheadline {
   -webkit-box-decoration-break: clone;
@@ -908,6 +917,6 @@ footer h3 {
   background-clip: text;
   background-image: linear-gradient(-40deg, var(--secondary), var(--white));
   box-sizing: border-box;
-  margin-top: 1rem;
+  margin-top: 1rem 0;
   display: block;
 }
