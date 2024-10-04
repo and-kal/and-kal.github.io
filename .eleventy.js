@@ -105,10 +105,10 @@ module.exports = function (eleventyConfig) {
       .then((json) => {
         const artists = json.lovedtracks.track;
         return artists.map((track, idx) => {
-          if (idx < 8) {
+          if (track && idx < 8) {
             const htmlElement =
               "<code>" +
-              track.artist.name +
+              track.artist?.name +
               ": " +
               track.name +
               // `<img src='${track.image[0]["#text"]}'>` +
