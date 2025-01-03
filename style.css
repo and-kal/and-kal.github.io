@@ -908,6 +908,9 @@ footer h3 {
 #now code {
   margin: 1rem 0;
 }
+#now code p {
+  margin: 0;
+}
 #now #subheadline {
   -webkit-box-decoration-break: clone;
   /* color: rgb(104, 178, 42); */
