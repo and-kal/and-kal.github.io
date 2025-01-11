@@ -64,6 +64,10 @@ audio synthesis and algorithmic composition, self-hosting stuff.**
             src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php"
             width="40" height="40" />
     </a>
+    <a href="https://lua.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://github.com/devicons/devicon/raw/master/icons/lua/lua-original.svg"
+            alt="lua" width="40" height="40" />
+    </a>
     <a href="https://wordpress.com/" target="_blank" rel="noopener noreferrer"> <img
             src="https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-plain.svg"
             alt="WordPress" width="40" height="40" />
@@ -123,7 +127,10 @@ audio synthesis and algorithmic composition, self-hosting stuff.**
         height="40" />
 </a>
 <a href="https://cycling74.com/products/max" target="_blank" rel="noopener noreferrer">
-    <img src="https://docs.cycling74.com/static/img/max8_logo.svg" alt="Max/MSP/Jitter" width="40" height="40" />
+    <img src="https://cycling74-docs-production.nyc3.digitaloceanspaces.com/legacy/img/max8_logo.svg" alt="Max/MSP/Jitter" width="40" height="40" />
+</a>
+<a href="https://learncpp.com" target="_blank" rel="noopener noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" width="40" height="40" />
 </a>
 
 <h3 align="left">Things I want to look into next:</h3>
@@ -156,8 +163,5 @@ audio synthesis and algorithmic composition, self-hosting stuff.**
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
             alt="csharp" width="40" height="40" />
     </a>
-    <a href="https://lua.org/" target="_blank" rel="noopener noreferrer">
-        <img src="https://github.com/devicons/devicon/raw/master/icons/lua/lua-original.svg" alt="lua" width="40"
-            height="40" />
-    </a>
+
 </p>
