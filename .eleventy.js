@@ -30,9 +30,9 @@ module.exports = function (eleventyConfig) {
           fileslug === "" || fileslug === "/" ? "class='active'" : ""
         } href="/">Home</a>
         <a ${fileslug === "now" ? "class='active'" : ""} href="/now">Now</a>
-        <!-- <a ${
-          fileslug === "blog" ? "class='active'" : ""
-        } href="/blog">Blog</a> -->
+        <a ${
+          fileslug === "blog" ? "class=''" : ""
+        } href="/second-brain">Blog</a>
         <a ${
           fileslug === "livecoding" ? "class='active'" : ""
         } href="/livecoding">Algorave</a>
