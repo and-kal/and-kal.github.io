@@ -19,7 +19,7 @@ audio synthesis and algorithmic composition, self-hosting stuff.**
 <h3 align="left">Connect with me:</h3>
 <p align="left">
         <a href="https://matrix.org" target="blank">@staxl:<img align="center"
-                        src="https://matrix.org/images/matrix-logo-white.svg" alt="matrix" height="40"
+                        src="https://matrix.org/images/matrix-logo.svg" alt="matrix" height="40"
                         width="auto" />.org</a>
         <a href="https://sonomu.club/@staxl" target="blank"><img align="center"
                         src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg"
