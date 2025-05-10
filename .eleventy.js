@@ -1,8 +1,8 @@
-function getRSSContent(dataAsJson) {
+function getRSSContent(dataAsJson, field) {
   return dataAsJson.elements[0].elements[0].elements.reduce((memo, elem) => {
     if (elem.name === "item") {
       const html = elem.elements.reduce((a, b) => {
-        if (b.name === "title") {
+        if (b.name === field) {
           // TODO: add date for bookwyrm fetch
           a = b.elements[0].text || b.elements[0].cdata;
         }
@@ -56,7 +56,7 @@ module.exports = function (eleventyConfig) {
       .then((response) => response.text())
       .then((str) => {
         dataAsJson = JSON.parse(convert.xml2json(str));
-        const latestActivityElements = getRSSContent(dataAsJson)
+        const latestActivityElements = getRSSContent(dataAsJson, "description")
           .filter((div) => {
             // only show elements with an image
             return /<img src/gi.test(div);
@@ -77,9 +77,11 @@ module.exports = function (eleventyConfig) {
       .then((response) => response.text())
       .then((str) => {
         dataAsJson = JSON.parse(convert.xml2json(str));
-        const latestActivityElements = getRSSContent(dataAsJson).map((div) => {
-          return `<code>${div}</code>`;
-        });
+        const latestActivityElements = getRSSContent(dataAsJson, "title").map(
+          (div) => {
+            return `<code>${div}</code>`;
+          }
+        );
         return latestActivityElements;
       });
     return latest;
