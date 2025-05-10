@@ -7,7 +7,7 @@ function getRSSContent(dataAsJson) {
           a = b.elements[0].text || b.elements[0].cdata;
         }
         return a;
-      });
+      }, "");
       const cleanedHtml = html.split("staxl ")[1] || html;
       memo.push(`<div>${cleanedHtml}</div>`);
     }
