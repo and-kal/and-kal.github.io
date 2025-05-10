@@ -2,7 +2,7 @@ function getRSSContent(dataAsJson) {
   return dataAsJson.elements[0].elements[0].elements.reduce((memo, elem) => {
     if (elem.name === "item") {
       const html = elem.elements.reduce((a, b) => {
-        if (b.name === "description") {
+        if (b.name === "title") {
           // TODO: add date for bookwyrm fetch
           a = b.elements[0].text || b.elements[0].cdata;
         }
