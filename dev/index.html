@@ -51,57 +51,104 @@
       <header>
     <nav>
     
-        <a class='active' href="/">Home</a>
+        <a  href="/">Home</a>
         <a  href="/now">Now</a>
         <a  href="/second-brain">Blog</a>
         <a  href="/livecoding">Livecoding</a>
         <a  href="/music">Music</a>
-        <a  href="/dev">Web Dev</a>
+        <a class='active' href="/dev">Web Dev</a>
         <a  id="imprint" href="/imprint">Imprint</a>
       
     </nav>
 </header>
       
 <main>
-  <section id="intro">
-    <div id="hero">
-      <div>Hello, my name's André</div>
-      <div>...and here's some things that I do.</div>
-    </div>
-
+  <aside class="featuredGif">
+    <img src="/assets/images/blackmagegif.gif" />
+  </aside>
+  <article id="dev">
+    <h1>Web dev</h1>
     <p>
-      <span>c</span>
-      I'm a full-stack web developer based in Leipzig.
-      <span>%</span>
+      As a web developer I like to work together with people and initaitves that are into
+      creative uses of web technology and that like unconventional designs. But I'm also open for more traditional
+      stuff. The important thing for me is to help folks manage their data and content themselves instead of
+      relying on commercial third-party providers or cloud solutions. Being independent of platforms and hosting
+      applications yourself is often not exactly easy or low-threshold for laypeople, which is why I am happy to help
+      facilitate digital sovereignty.
     </p>
-
-    <p>
-      <span>b</span>
-      Other than that, I'm interested in A/V (live) coding and host
-      livecoding events myself.
-      <span>]</span>
-    </p>
-
-    <p>
-      <span>a</span>
-      Sometimes I DJ under the name of Staxl and I try to produce music (breakbeats / broken beats type
-      of stuff) and perform live, too, sometimes.
-      <span>&</span>
-    </p>
-    <p>
-      <span>d</span>
-      I also set up concerts and am active in some local DIY collectives.
-      <span>\</span>
-    </p>
-
-    <section>
-      <p>
-        <span>e</span>
-        Get in touch with me, if you got any things to share or any offers or ideas for projects,
-        collaborations or whatnot. I'm happy to connect!
-        <span>"</span>
-      </p>
+    <!-- <p>
+      As for frameworks, I usually stick to <em>SvelteKit</em> and
+      <em>Next.js</em> (sometimes <em>Remix</em>), though I'm always curious to
+      test out new stuff. Other than that, I also like using
+      <em>JAMStack</em> and <em>Static Site Generators</em> for certain
+      projects. And sometimes plain old <em>PHP</em> development also has its
+      place in my toolbox.
+    </p> -->
+    <section class="projects" id="portfolio">
+      <span>Here's a couple of websites that I built or helped building
+        recently:</span>
+      <ul>
+        <li>
+          Website for the left-wing library and think tank
+          <a href="https://www.translib.de" target="_blank" rel="noopener noreferrer">translib</a>
+          <span>{using Next.js + Tailwind + Headless Wordpress}</span>
+          <span>[design by
+            <a href="https://lenahaubner.de/">Lena Haubner</a>]</span>
+        </li>
+        <li>
+          <a href="https://www.markusstreb.de" target="_blank" rel="noopener noreferrer">Portfolio page for Markus
+            Streb</a>
+          <span>{done with
+            <a href="https://ghost.org/" target="_blank" rel="noopener noreferrer">Ghost</a>}</span>
+        </li>
+        <li>
+          <a href="http://itr.root.sx" target="_blank" rel="noopener noreferrer">Page for my DIY event crew Income Tax
+            Refund</a>
+          <span>{done with
+            <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+            and
+            <a href="https://decapcms.org/" target="_blank" rel="noopener noreferrer">Netlify CMS</a>}</span>
+        </li>
+        <!-- <li>
+          <a href="https://pracht-ev.net" target="_blank" rel="noopener noreferrer" target="_blank"
+            rel="noopener noreferrer">pracht-ev.net</a>
+          <span>
+            in collaboration with
+            <a href="https://jonasholfeld.com/" target="_blank" rel="noopener noreferrer">Jonas Holfeld</a>
+            and
+            <a href="https://github.com/judithcrasser" target="_blank" rel="noopener noreferrer">Judith Crasser</a>
+            {done with
+            <a href="https://getkirby.com/" target="_blank" rel="noopener noreferrer">Kirby</a>}
+          </span>
+        </li> -->
+        <li>
+          Implementing new frontend for
+          <a href="https://www.einewelt-sachsen.de/" target="_blank" rel="noopener noreferrer">Entwicklungspolitisches
+            Netzwerk Sachsen e.V. ENS</a>, designed by
+          <a href="https://www.instagram.com/e.emitu" target="_blank" rel="noopener noreferrer">e.emitu</a>
+          <span>{Custom Wordpress theme}</span>
+        </li>
+        <li>
+          Building a frontend of local DIY online TV Station
+          <a href="https://hitness.club" target="_blank" rel="noopener noreferrer">Hitness Club</a>
+          and implementing a backend (with user-friendly CMS) together with the team.
+          <span>{SvelteKit + Tailwind + Directus CMS + PeerTube}</span>
+        </li>
+      </ul>
     </section>
+    <!-- <section class="projects" id="currently">
+      <span>...and here's some stuff I'm currently working on:</span>
+      <ul>
+        <li>
+          Rebuilding the
+          <a href="https://sphere-radio.net/" target="_blank" rel="noopener noreferrer">Sphere Radio</a>
+          website, enhancing the browsing experience via single page app
+          strategies and server-side rendering.
+          <span>{Next.js + MUI + Headless Wordpress}</span>
+        </li>
+      </ul>
+    </section> -->
+  </article>
 </main>
       <footer>
     <div id="socialmedia">
