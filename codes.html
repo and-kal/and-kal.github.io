@@ -31,7 +31,7 @@ layout: _layout.liquid
         , loopAt 4 $ s "[padu:0|padu:2|padu:4]" # fshift (-4600) # note (-12)
         ] 
         # speed (range (-2) 2 $ slow 30 $ sine) 
-        # cps 0.25 -- at cps 1, when loopAt's param matches the samples length the sample will play in normal speed`
+        # cps 0.25 -- ^ at cps 1, when loopAt's param matches the samples length the sample will play in normal speed`
       {% endhighlightBlock %}
       {% highlightBlock "haskell" %} 
         -- 2 Heap_Corruption 
@@ -53,8 +53,8 @@ layout: _layout.liquid
         $ somecyclesBy (1/6) (rev)
         $ stack [
         whenmod 42 38 (degradeBy 1)
-        $ n (fit 1 [0..2] basePat) # midiN 5 -- 0..2=kick + FX
-        , (0.5 <~) $ n "<~ 12 ~ 17>" # midiN 5 -- 12=snare
+        $ n (fit 1 [0..2] basePat) # midiN 5 -- ^ 0..2=kick + FX
+        , (0.5 <~) $ n "<~ 12 ~ 17>" # midiN 5 -- ^ 12=snare
         , whenmod 6 8 (fast (3/4))
         $ every 3 rev $ n "[0!3 ~ 2!4]*2" # midiN 6 -- ^ hat
         , whenmod 32 16 (|+ ccv 90) -- ^ add clicks half of the time
@@ -63,8 +63,9 @@ layout: _layout.liquid
         $ ccn 27 # ccv (cycleChoose [0, 105]) # s "midi" -- ^ grain pitch
         , ccn 30 # ccv (cycleChoose [30, 120]) # s "midi" -- ^ grain freq
         , n (scale "harmonicMajor" $ (unwrap $ fit 0 ["c'min9", "gs'min9",
-        "fs'min9"] basePat)) # midiN 8 -- synth
-        , every 4 ((fast 4) . (|+ ccv (segment 32 $ range 10 127 $ rand))) $ ccn 43 # ccv 0 # s "midi" -- ^ grain freq ] # cps (161/60/4)
+        "fs'min9"] basePat)) # midiN 8 -- ^ synth
+        , every 4 ((fast 4) . (|+ ccv (segment 32 $ range 10 127 $ rand))) $ ccn 43 # ccv 0 # s "midi" -- ^ grain freq 
+        ] # cps (161/60/4)
       {% endhighlightBlock %}
       {% highlightBlock "haskell" %} 
         -- 3 Assertion_Failure
@@ -78,12 +79,12 @@ layout: _layout.liquid
         $ stack [
         whenmod 23 17
         (const $ (n "[fs6'min11]*9" # midiN 10 # legato 0.4)) 
-        $ silence -- occassional synth
-        , stutter 13 (1/16) $ n "0 1" # midiN "9" -- kick
-        , stutter 12 (1/16) $ n "2" # midiN 9 -- hats
+        $ silence -- ^ occassional synth
+        , stutter 13 (1/16) $ n "0 1" # midiN "9" -- ^ kick
+        , stutter 12 (1/16) $ n "2" # midiN 9 -- ^ hats
         , whenmod 6 4 (bite 4 "3 2 0 1") 
-        $ fast 2 $ struct (binary "1110110" ) $ n (run 32) # midiN 11 -- clap
-        , stutter 24 (1/16) $ n "[12|7] [14|5] -12 _" # midiN 12 -- synth
+        $ fast 2 $ struct (binary "1110110" ) $ n (run 32) # midiN 11 -- ^ clap
+        , stutter 24 (1/16) $ n "[12|7] [14|5] -12 _" # midiN 12 -- ^ synth
         ] # cps (185/60/4)
       {% endhighlightBlock %}
       {% highlightBlock "haskell" %} 
@@ -97,25 +98,25 @@ layout: _layout.liquid
         $ whenmod 14 11 (linger "[0.125|0.0625]")
         $ stack [
         n (scale "phrygian" (unwrap $ fmap (["~","-12","-7"]!!) $ pattern))
-        # midiN 14 -- vital
+        # midiN 14 -- ^ vital
         , somecyclesBy (0.25) ((|+ n (run 24)) . (fast 6))
         $ n (unwrap $ fmap (["[0|1|2]","~","~"]!!) $ pattern) 
-        # midiN 16 -- snare
+        # midiN 16 -- ^ snare
         , whenmod 10 8 (|- n 24)
         $ somecyclesBy (1/4) (|+ n "[-2|12]")
         $ n (scale "phrygian" (unwrap $ fmap (["c'7f5","~","f'7f5"]!!) $ pattern))
-        # midiN 13 -- MI Plaits
+        # midiN 13 -- ^ MI Plaits
         # legato 2
-        , ccv (segment 100 $ range 60 120 $ slow 6 $ sine) # ccn "[49]" # s "midi" -- harmonics
-        , ccv (segment 100 $ range 80 120 $ slow 6 $ sine) # ccn "[50]" # s "midi" -- timbre
-        , ccv (segment 100 $ range 60 120 $ slow 24 $ sine) # ccn "[51]" # s "midi" -- morph
+        , ccv (segment 100 $ range 60 120 $ slow 6 $ sine) # ccn "[49]" # s "midi" -- ^ harmonics
+        , ccv (segment 100 $ range 80 120 $ slow 6 $ sine) # ccn "[50]" # s "midi" -- ^ timbre
+        , ccv (segment 100 $ range 60 120 $ slow 24 $ sine) # ccn "[51]" # s "midi" -- ^ morph
         , whenmod 32 27 (|+ n 48)
         $ n (scale "phrygian" ("[-24|-12|-19]*1?")) # s "midi" # midichan 14
-        # legato (range 0.2 1 $ slow 4 $ saw) -- fxkick
-        , ccv (segment 100 $ range 0 60 $ slow 6 $ sine) # ccn 53 # s "midi" -- flanger
-        , ccv (segment 100 $ range 0 60 $ slow 15 $ sine) # ccn 54 # s "midi" -- flanger
-        , ccv (segment 100 $ range 0 120 $ slow 12 $ sine) # ccn 55 # s "midi" -- grain
-        , n (unwrap $ fmap (["~","-24","-17"]!!) $ pattern) # midiN 15 -- kick/laz
+        # legato (range 0.2 1 $ slow 4 $ saw) -- ^ fxkick
+        , ccv (segment 100 $ range 0 60 $ slow 6 $ sine) # ccn 53 # s "midi" -- ^ flanger
+        , ccv (segment 100 $ range 0 60 $ slow 15 $ sine) # ccn 54 # s "midi" -- ^ flanger
+        , ccv (segment 100 $ range 0 120 $ slow 12 $ sine) # ccn 55 # s "midi" -- ^ grain
+        , n (unwrap $ fmap (["~","-24","-17"]!!) $ pattern) # midiN 15 -- ^ kick/laz
         ] # cps(140/60/8)
       {% endhighlightBlock %}
       {% highlightBlock "haskell" %} 
@@ -133,16 +134,16 @@ layout: _layout.liquid
         $ whenmod 17 16 ((ply 2) . (slow 4))
         $ whenmod 19 16 (degradeBy 0.5)
         $ whenmod 48 24 (every 2 (rev))
-        $ patAbstr (["-24","~","-22","[-21|-23]"]!!) # midiN 0 -- kick, snare,
+        $ patAbstr (["-24","~","-22","[-21|-23]"]!!) # midiN 0 -- ^ kick, snare,
         clap|hat
         , whenmod 9 7 (|+ note 12)
-        $ note "<12 14>" # midiN 1 -- vital
+        $ note "<12 14>" # midiN 1 -- ^ vital
         # legato 0.25
-        , midiCC 3 (segment 20 $ fast 2 $ range 40 127 perlin) -- delay freq
-        , midiCC 4 70 -- delay bubbles
-        , midiCC 5 127 -- kick dry
-        , midiCC 6 (segment 60 $ fast 8 $ range 40 127 tri) -- hat tremolo speed
-        , midiCC 1 0 -- delay (set to 127 for transition)
+        , midiCC 3 (segment 20 $ fast 2 $ range 40 127 perlin) -- ^ delay freq
+        , midiCC 4 70 -- ^ delay bubbles
+        , midiCC 5 127 -- ^ kick dry
+        , midiCC 6 (segment 60 $ fast 8 $ range 40 127 tri) -- ^ hat tremolo speed
+        , midiCC 1 0 -- ^ delay (set to 127 for transition)
         ]
         # s "midi"
         # cps tempo
