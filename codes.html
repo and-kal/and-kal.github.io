@@ -43,7 +43,7 @@ layout: _layout.liquid
         # ccv (segment 50 (range val1 val2 $ rand)) 
         # s "midi" -- ^ this one is for sending one random value per cycle
         ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
-        basePat = \"<0 [1 2] 2 [1 2 0] 1 2 [2 1]>*4\"
+        basePat = "<0 [1 2] 2 [1 2 0] 1 2 [2 1]>*4"
         var1 = whenmod 36 33 (zoom (1/4, 4)) 
         var2 = whenmod 12 9 (fast "<1.25 1.5>")
         var3 = whenmod 50 45 ((slow 8) . (ply 8))
@@ -136,7 +136,7 @@ layout: _layout.liquid
         $ patAbstr (["-24","~","-22","[-21|-23]"]!!) # midiN 0 -- kick, snare,
         clap|hat
         , whenmod 9 7 (|+ note 12)
-        $ note \"<12 14>\" # midiN 1 -- vital
+        $ note "<12 14>" # midiN 1 -- vital
         # legato 0.25
         , midiCC 3 (segment 20 $ fast 2 $ range 40 127 perlin) -- delay freq
         , midiCC 4 70 -- delay bubbles
