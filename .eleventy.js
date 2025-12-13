@@ -1,3 +1,5 @@
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 function getRSSContent(dataAsJson, field) {
   return dataAsJson.elements[0].elements[0].elements.reduce((memo, elem) => {
     if (elem.name === "item") {
@@ -18,10 +20,7 @@ function getRSSContent(dataAsJson, field) {
 
 module.exports = function (eleventyConfig) {
   require("dotenv").config();
-
-  eleventyConfig.ignores.add("README.md");
-  eleventyConfig.ignores.add(".gitignore");
-
+  const { pairedShortcode } = syntaxHighlight;
   eleventyConfig.addPassthroughCopy("./*.css");
   eleventyConfig.addPassthroughCopy("./assets");
   eleventyConfig.addLiquidShortcode("header-active", function (fileslug) {
@@ -121,7 +120,12 @@ module.exports = function (eleventyConfig) {
     // return [...weeklyTopArtists, ...lovedTracks];
     return [...lovedTracks];
   });
-
+  eleventyConfig.addPairedShortcode(
+    "highlightBlock",
+    function (content, language) {
+      return pairedShortcode(content, language || "plaintext");
+    }
+  );
   return {
     passthroughFileCopy: true,
   };

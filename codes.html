@@ -13,206 +13,137 @@ layout: _layout.liquid
     <h2>Segfault</h2>
     <sub>Bio Future Laboratory, 2025</sub>
     <div>
-      <code>
-        track0-IOSystem
-        <br />
-        let choices = choose (map (* 6) [5,4..0])<br />in<br />d1 <br />
-        $<br />
-        someCyclesBy (1/6) (jux (# speed (-0.5))) <br />
-        $<br />
-        someCyclesBy (1/4) (# speed 0.5)<br />
-        $<br />
-        every 4 (# shape 0.3)<br />
-        $<br />
-        whenmod 8 6 (rev)<br />
-        $<br />
-        whenmod 30 15 ((chop (choices)) . (fast (choices/2)))<br />
-        $<br />
-        stack [<br />
+      {% highlightBlock "haskell" %} 
+        -- track0-IOSystem
+        let choices = choose (map (* 6) [5,4..0])
+        in
+        d1 
+        $ someCyclesBy (1/6) (jux (# speed (-0.5))) 
+        $ someCyclesBy (1/4) (# speed 0.5)
+        $ every 4 (# shape 0.3)
+        $ whenmod 8 6 (rev)
+        $ whenmod 30 15 ((chop (choices)) . (fast (choices/2)))
+        $ stack [
         loopAt 11 $ randslice 4 $ fast 4 $ s "BBC:3" # accelerate "-3 1!4 3"
-        <br />
-        ,<br />
-        loopAt 10 $ s "BBC:2" # accelerate "-0.2 1!4 0.8" <br />
-        ,<br />
-        loopAt 20 $ s "BBC:1" # accelerate "-0.5 1!4 0.75" <br />
-        ,<br />
-        loopAt 5 $ s "BBC:0" # accelerate "-2 1!4 2" <br />
-        ,<br />
-        loopAt 4 $ s "[padu:0|padu:2|padu:4]" # fshift (-4600) # note (-12)
-        <br />
-        ] <br />
-        # speed (range (-2) 2 $ slow 30 $ sine) <br />
-        # cps 0.25 -- at cps 1, when loopAt's param matches the samples length
-        the sample will play in normal speed
-      </code>
-      <code>
-        -- track2-ReifiedType <br />
-        let <br />
-        midiN chan = s "midi" # midichan (chan - 1) <br />
-        ccDis chan val = ccv val # ccn chan # s "midi" <br />
-        ccDisrand1 chan val1 val2 = <br />
-        ccn chan <br />
-        # ccv (segment 50 (range val1 val2 $ rand)) <br />
-        # s "midi" -- ^ this one is for sending one random value per cycle<br />
-        ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" <br />
-        basePat = "<0 [1 2] 2 [1 2 0] 1 2 [2 1]>*4"<br />
-        var1 = whenmod 36 33 (zoom (1/4, 4)) <br />
-        var2 = whenmod 12 9 (fast "<1.25 1.5>")<br />
-        var3 = whenmod 50 45 ((slow 8) . (ply 8))<br />
-        in<br />
-        d2<br />
-        $<br />
-        var1<br />
-        $<br />
-        var2<br />
-        $<br />
-        var3<br />
-        $<br />
-        somecyclesBy (1/6) (rev)<br />
-        $ <br />
-        stack [<br />
-        whenmod 42 38 (degradeBy 1)<br />
-        $<br />
-        n (fit 1 [0..2] basePat) # midiN 5 -- 0..2=kick + FX<br />
-        , <br />
-        (0.5 <~) $ n "<~ 12 ~ 17>" # midiN 5 -- 12=snare<br />
-        , <br />
-        whenmod 6 8 (fast (3/4))<br />
-        $ <br />
-        every 3 rev $ n "[0!3 ~ 2!4]*2" # midiN 6 -- ^ hat<br />
-        ,<br />
-        whenmod 32 16 (|+ ccv 90) -- ^ add clicks half of the time<br />
-        $<br />
-        ccn 31 # ccv 0 # s "midi" <br />
-        , ("[1|0]" <~) -- ^ introducing another randomness generator here,
-        otherwise the two `choose` will always be in sync<br />
-        $<br />
-        ccn 27 # ccv (cycleChoose [0, 105]) # s "midi" -- ^ grain pitch<br />
-        , ccn 30 # ccv (cycleChoose [30, 120]) # s "midi" -- ^ grain freq<br />
-        ,<br />
-        n (scale "harmonicMajor" $ (unwrap $ fit 0 ["c'min9", "gs'min9",
-        "fs'min9"] basePat)) # midiN 8 -- synth<br />
-        ,<br />
-        every 4 ((fast 4) . (|+ ccv (segment 32 $ range 10 127 $ rand))) $ ccn
-        43 # ccv 0 # s "midi" -- ^ grain freq ] # cps (161/60/4)
-      </code>
-      <code>
-        -- track3-GenericType <br />
-        let <br />
-        midiN chan = s "midi" # midichan (chan - 1) -- ^ MIDI channels in TC are
-        0-indexed <br />
-        in<br />
-        d3<br />
-        $ palindrome <br />
-        $ whenmod 24 21 (slow "2 1.5 1.25") <br />
-        $ whenmod 23 17 (linger (1/16))<br />
-        $ stack [<br />
-        whenmod 23 17<br />
-        (const $ (n "[fs6'min11]*9" # midiN 10 # legato 0.4)) <br />
-        $ silence -- occassional synth<br />
-        , stutter 13 (1/16) $ n "0 1" # midiN "9" -- kick<br />
-        , stutter 12 (1/16) $ n "2" # midiN 9 -- hats<br />
-        , <br />
-        whenmod 6 4 (bite 4 "3 2 0 1") <br />
+        , loopAt 10 $ s "BBC:2" # accelerate "-0.2 1!4 0.8" 
+        , loopAt 20 $ s "BBC:1" # accelerate "-0.5 1!4 0.75" 
+        , loopAt 5 $ s "BBC:0" # accelerate "-2 1!4 2" 
+        , loopAt 4 $ s "[padu:0|padu:2|padu:4]" # fshift (-4600) # note (-12)
+        ] 
+        # speed (range (-2) 2 $ slow 30 $ sine) 
+        # cps 0.25 -- at cps 1, when loopAt's param matches the samples length the sample will play in normal speed`
+      {% endhighlightBlock %}
+        -- track2-ReifiedType 
+        let 
+        midiN chan = s "midi" # midichan (chan - 1) 
+        ccDis chan val = ccv val # ccn chan # s "midi" 
+        ccDisrand1 chan val1 val2 = 
+        ccn chan 
+        # ccv (segment 50 (range val1 val2 $ rand)) 
+        # s "midi" -- ^ this one is for sending one random value per cycle
+        ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+        basePat = \"<0 [1 2] 2 [1 2 0] 1 2 [2 1]>*4\"
+        var1 = whenmod 36 33 (zoom (1/4, 4)) 
+        var2 = whenmod 12 9 (fast "<1.25 1.5>")
+        var3 = whenmod 50 45 ((slow 8) . (ply 8))
+        in
+        d2
+        $ var1 $ var2 $ var3
+        $ somecyclesBy (1/6) (rev)
+        $ stack [
+        whenmod 42 38 (degradeBy 1)
+        $ n (fit 1 [0..2] basePat) # midiN 5 -- 0..2=kick + FX
+        , (0.5 <~) $ n "<~ 12 ~ 17>" # midiN 5 -- 12=snare
+        , whenmod 6 8 (fast (3/4))
+        $ every 3 rev $ n "[0!3 ~ 2!4]*2" # midiN 6 -- ^ hat
+        , whenmod 32 16 (|+ ccv 90) -- ^ add clicks half of the time
+        $ ccn 31 # ccv 0 # s "midi" 
+        , ("[1|0]" <~) -- ^ introducing another randomness generator here, otherwise the two \`choose\` will always be in sync
+        $ ccn 27 # ccv (cycleChoose [0, 105]) # s "midi" -- ^ grain pitch
+        , ccn 30 # ccv (cycleChoose [30, 120]) # s "midi" -- ^ grain freq
+        , n (scale "harmonicMajor" $ (unwrap $ fit 0 ["c'min9", "gs'min9",
+        "fs'min9"] basePat)) # midiN 8 -- synth
+        , every 4 ((fast 4) . (|+ ccv (segment 32 $ range 10 127 $ rand))) $ ccn 43 # ccv 0 # s "midi" -- ^ grain freq ] # cps (161/60/4)
+      {% highlightBlock "haskell" %} 
+        -- track3-GenericType 
+        let 
+        midiN chan = s "midi" # midichan (chan - 1) -- ^ MIDI channels in TC are 0-indexed 
+        in
+        d3
+        $ palindrome 
+        $ whenmod 24 21 (slow "2 1.5 1.25") 
+        $ whenmod 23 17 (linger (1/16))
+        $ stack [
+        whenmod 23 17
+        (const $ (n "[fs6'min11]*9" # midiN 10 # legato 0.4)) 
+        $ silence -- occassional synth
+        , stutter 13 (1/16) $ n "0 1" # midiN "9" -- kick
+        , stutter 12 (1/16) $ n "2" # midiN 9 -- hats
+        , whenmod 6 4 (bite 4 "3 2 0 1") 
         $ fast 2 $ struct (binary "1110110" ) $ n (run 32) # midiN 11 -- clap
-        <br />
-        , stutter 24 (1/16) $ n "[12|7] [14|5] -12 _" # midiN 12 -- synth<br />
-        ]<br />
-        # cps (185/60/4)
-      </code>
-      <code>
-        -- track4-MethodInvocatio <br />
-        let <br />
-        pattern = "{0@2 0@3 1@4 2@5 1@4 0@3 0@2}%16"<br />
-        midiN chan = s "midi" # midichan (chan - 1) <br />
-        in <br />
-        d5<br />
-        $ somecyclesBy (1/4) (rev)<br />
-        $ whenmod 14 11 (linger "[0.125|0.0625]")<br />
-        $ stack [<br />
+        , stutter 24 (1/16) $ n "[12|7] [14|5] -12 _" # midiN 12 -- synth
+        ] # cps (185/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %} 
+        -- track4-MethodInvocation
+        let 
+        pattern = "{0@2 0@3 1@4 2@5 1@4 0@3 0@2}%16"
+        midiN chan = s "midi" # midichan (chan - 1) 
+        in 
+        d5
+        $ somecyclesBy (1/4) (rev)
+        $ whenmod 14 11 (linger "[0.125|0.0625]")
+        $ stack [
         n (scale "phrygian" (unwrap $ fmap (["~","-12","-7"]!!) $ pattern))
-        <br />
-        # midiN 14 -- vital<br />
-        , <br />
-        somecyclesBy (0.25) ((|+ n (run 24)) . (fast 6))<br />
-        $ <br />
-        n (unwrap $ fmap (["[0|1|2]","~","~"]!!) $ pattern) <br />
-        # midiN 16 -- snare<br />
-        , <br />
-        whenmod 10 8 (|- n 24)<br />
-        $<br />
-        somecyclesBy (1/4) (|+ n "[-2|12]")<br />
-        $ <br />
-        n (scale "phrygian" (unwrap $ fmap (["c'7f5","~","f'7f5"]!!) $ pattern))
-        <br />
-        # midiN 13 -- MI Plaits<br />
-        # legato 2<br />
-        , ccv (segment 100 $ range 60 120 $ slow 6 $ sine) # ccn "[49]" # s
-        "midi" -- harmonics<br />
-        , ccv (segment 100 $ range 80 120 $ slow 6 $ sine) # ccn "[50]" # s
-        "midi" -- timbre<br />
-        , ccv (segment 100 $ range 60 120 $ slow 24 $ sine) # ccn "[51]" # s
-        "midi" -- morph<br />
-        , <br />
-        whenmod 32 27 (|+ n 48)<br />
-        $ <br />
-        n (scale "phrygian" ("[-24|-12|-19]*1?")) # s "midi" # midichan 14<br />
-        # legato (range 0.2 1 $ slow 4 $ saw) -- fxkick<br />
-        , ccv (segment 100 $ range 0 60 $ slow 6 $ sine) # ccn 53 # s "midi" --
-        flanger<br />
-        , ccv (segment 100 $ range 0 60 $ slow 15 $ sine) # ccn 54 # s "midi" --
-        flanger<br />
-        , ccv (segment 100 $ range 0 120 $ slow 12 $ sine) # ccn 55 # s "midi"
-        -- grain<br />
-        , <br />
-        n (unwrap $ fmap (["~","-24","-17"]!!) $ pattern) <br />
-        # midiN 15 -- kick/laz<br />
-        ]<br />
-        # cps(140/60/8)
-      </code>
-      <code>
-        -- track1-TheoryofManifolds <br />
-        let <br />
-        tempo = (156/60/4)<br />
-        pattern = "[0 1 0 1!2 0 1!3 1!4 0 1!5 0 1!6 2 1!7 3 1!8]"<br />
-        -- pattern = "[0 1 3 1 0 1 2 0 1 0 1 2 1 3 1]"<br />
-        patAbstr x = note (unwrap $ fmap (x) $ pattern)<br />
-        midiN chan = s "midi" # midichan chan<br />
-        midiCC chan val = ccv val # ccn chan<br />
-        in <br />
-        d2<br />
-        $<br />
-        stack [<br />
-        whenmod 8 6 (0.125 <~)<br />
-        $<br />
-        whenmod 17 16 ((ply 2) . (slow 4))<br />
-        $<br />
-        whenmod 19 16 (degradeBy 0.5)<br />
-        $<br />
-        whenmod 48 24 (every 2 (rev))<br />
-        $<br />
-        patAbstr (["-24","~","-22","[-21|-23]"]!!) # midiN 0 -- kick, snare,
-        clap|hat<br />
-        ,<br />
-        whenmod 9 7 (|+ note 12)<br />
-        $<br />
-        note "<12 14>" # midiN 1 -- vital<br />
-        # legato 0.25<br />
-        ,<br />
-        midiCC 3 (segment 20 $ fast 2 $ range 40 127 perlin) -- delay freq<br />
-        ,<br />
-        midiCC 4 70 -- delay bubbles<br />
-        ,<br />
-        midiCC 5 127 -- kick dry<br />
-        ,<br />
-        midiCC 6 (segment 60 $ fast 8 $ range 40 127 tri) -- hat tremolo
-        speed<br />
-        ,<br />
-        midiCC 1 0 -- delay (set to 127 for transition)<br />
-        ]<br />
-        # s "midi"<br />
-        # cps tempo<br />
-      </code>
-    </div>
+        # midiN 14 -- vital
+        , somecyclesBy (0.25) ((|+ n (run 24)) . (fast 6))
+        $ n (unwrap $ fmap (["[0|1|2]","~","~"]!!) $ pattern) 
+        # midiN 16 -- snare
+        , whenmod 10 8 (|- n 24)
+        $ somecyclesBy (1/4) (|+ n "[-2|12]")
+        $ n (scale "phrygian" (unwrap $ fmap (["c'7f5","~","f'7f5"]!!) $ pattern))
+        # midiN 13 -- MI Plaits
+        # legato 2
+        , ccv (segment 100 $ range 60 120 $ slow 6 $ sine) # ccn "[49]" # s "midi" -- harmonics
+        , ccv (segment 100 $ range 80 120 $ slow 6 $ sine) # ccn "[50]" # s "midi" -- timbre
+        , ccv (segment 100 $ range 60 120 $ slow 24 $ sine) # ccn "[51]" # s "midi" -- morph
+        , whenmod 32 27 (|+ n 48)
+        $ n (scale "phrygian" ("[-24|-12|-19]*1?")) # s "midi" # midichan 14
+        # legato (range 0.2 1 $ slow 4 $ saw) -- fxkick
+        , ccv (segment 100 $ range 0 60 $ slow 6 $ sine) # ccn 53 # s "midi" -- flanger
+        , ccv (segment 100 $ range 0 60 $ slow 15 $ sine) # ccn 54 # s "midi" -- flanger
+        , ccv (segment 100 $ range 0 120 $ slow 12 $ sine) # ccn 55 # s "midi" -- grain
+        , n (unwrap $ fmap (["~","-24","-17"]!!) $ pattern) # midiN 15 -- kick/laz
+        ] # cps(140/60/8)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %} 
+        -- track1-TheoryofManifolds 
+        let 
+        tempo = (156/60/4)
+        pattern = "[0 1 0 1!2 0 1!3 1!4 0 1!5 0 1!6 2 1!7 3 1!8]"
+        patAbstr x = note (unwrap $ fmap (x) $ pattern)
+        midiN chan = s "midi" # midichan chan
+        midiCC chan val = ccv val # ccn chan
+        in 
+        d2
+        $ stack [
+        whenmod 8 6 (0.125 <~)
+        $ whenmod 17 16 ((ply 2) . (slow 4))
+        $ whenmod 19 16 (degradeBy 0.5)
+        $ whenmod 48 24 (every 2 (rev))
+        $ patAbstr (["-24","~","-22","[-21|-23]"]!!) # midiN 0 -- kick, snare,
+        clap|hat
+        , whenmod 9 7 (|+ note 12)
+        $ note \"<12 14>\" # midiN 1 -- vital
+        # legato 0.25
+        , midiCC 3 (segment 20 $ fast 2 $ range 40 127 perlin) -- delay freq
+        , midiCC 4 70 -- delay bubbles
+        , midiCC 5 127 -- kick dry
+        , midiCC 6 (segment 60 $ fast 8 $ range 40 127 tri) -- hat tremolo speed
+        , midiCC 1 0 -- delay (set to 127 for transition)
+        ]
+        # s "midi"
+        # cps tempo
+      {% endhighlightBlock %}
   </div>
 </main>
