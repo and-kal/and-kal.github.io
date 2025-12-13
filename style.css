@@ -573,7 +573,7 @@ a:hover {
   transition: color 0.125s, background-color 0.125s;
 }
 
-ul {
+:not(#music) ul {
   list-style-type: none;
   padding: 0;
 }
