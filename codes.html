@@ -9,7 +9,7 @@ layout: _layout.liquid
       <img src="/assets/images/metroid.gif" />
     </aside> 
     -->
-    <h1>TidalCycles</h1>
+  <h1 style="margin-right:auto">TidalCycles code snippets</h1>
     <h2>Segfault</h2>
     <sub>Bio Future Laboratory, 2025</sub>
     <div>
@@ -33,6 +33,7 @@ layout: _layout.liquid
         # speed (range (-2) 2 $ slow 30 $ sine) 
         # cps 0.25 -- at cps 1, when loopAt's param matches the samples length the sample will play in normal speed`
       {% endhighlightBlock %}
+      {% highlightBlock "haskell" %} 
         -- track2-ReifiedType 
         let 
         midiN chan = s "midi" # midichan (chan - 1) 
@@ -64,6 +65,7 @@ layout: _layout.liquid
         , n (scale "harmonicMajor" $ (unwrap $ fit 0 ["c'min9", "gs'min9",
         "fs'min9"] basePat)) # midiN 8 -- synth
         , every 4 ((fast 4) . (|+ ccv (segment 32 $ range 10 127 $ rand))) $ ccn 43 # ccv 0 # s "midi" -- ^ grain freq ] # cps (161/60/4)
+      {% endhighlightBlock %}
       {% highlightBlock "haskell" %} 
         -- track3-GenericType 
         let 
