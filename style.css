@@ -578,6 +578,16 @@ ul {
   padding: 0;
 }
 
+@counter-style fish {
+  system: cyclic;
+  symbols: "𓆝" "𓆟" "𓆞" "𓆝" "𓆟";
+  suffix: " ";
+}
+
+#music ul {
+  list-style-type: fish;
+}
+
 label {
   display: block;
 }
