@@ -3,15 +3,24 @@ layout: _layout.liquid
 ---
 
 <main>
-  <div id="livecoding">
-    <!-- 
-    <aside class="featuredGif" id="metroid">
-      <img src="/assets/images/metroid.gif" />
-    </aside> 
-    -->
+  <div id="codes">
   <h1 style="margin-right:auto">TidalCycles code snippets</h1>
     <h2>Segfault</h2>
-    <sub>Bio Future Laboratory, 2025</sub>
+    <sub>2025 EP on 
+      <a
+        href="https://soundcloud.com/bio-future-lab"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Bio Future Laboratory
+      </a>
+    </sub>
+    <aside class="featuredGif" id="miko">
+      <img src="/assets/images/miko-i.gif" />
+    </aside>
+    <aside class="featuredGif" id="cd"><img src="/assets/images/cd.gif" /></aside>
+    <aside class="featuredGif" id="cassette">
+      <img src="/assets/images/cassette.gif" />
+    </aside>
     <div>
       {% highlightBlock "haskell" %} 
         -- 1 OOM_Killer
@@ -148,5 +157,6 @@ layout: _layout.liquid
         # s "midi"
         # cps tempo
       {% endhighlightBlock %}
+    </div>
   </div>
 </main>
