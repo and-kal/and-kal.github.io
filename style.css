@@ -508,6 +508,9 @@ body {
   top: 60rem;
   right: 2rem;
 }
+#main-container main .featuredGif#pelican {
+  margin: auto;
+}
 
 #main-container main .featuredGif img {
   max-height: 66px;
@@ -780,6 +783,12 @@ section.projects > ul li a {
 
 #imprint #imprint-contact {
   margin: 1rem 0;
+}
+
+#codes h1 {
+  width: auto;
+  margin: 0;
+  text-align: center;
 }
 
 footer {
