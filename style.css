@@ -588,17 +588,6 @@ ul {
   padding: 0;
 }
 
-@counter-style fish {
-  system: cyclic;
-  symbols: "𓆝" "𓆟" "𓆞" "𓆝" "𓆟";
-  suffix: " ";
-}
-
-#music ul:not(.unscii) {
-  list-style-type: fish;
-  padding-left: 1.5rem;
-}
-
 label {
   display: block;
 }
@@ -730,22 +719,28 @@ section.projects > ul li a {
   font-family: "Runescape Fancy";
 }
 
-#music ul {
-  /* display: grid; */
-  gap: var(--fsz);
-  /* grid-template-columns: 1fr 1fr; */
+@counter-style fish {
+  system: cyclic;
+  symbols: "𓆝" "𓆟" "𓆞" "𓆝" "𓆟";
+  suffix: " ";
 }
 
-#music ul li {
+#music ul:not(.unscii) {
+  gap: var(--fsz);
+  list-style-type: fish;
+  padding-left: 1.5rem;
+}
+
+#music ul:not(.unscii) li {
   margin: 1rem 0;
 }
-#music ul li a:hover {
+#music ul:not(.unscii) li a:hover {
   background-color: var(--secondary);
   color: var(--primary);
   cursor: pointer;
 }
 
-#music ul li p {
+#music ul:not(.unscii) li p {
   margin: 0;
 }
 
