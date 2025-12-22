@@ -34,6 +34,13 @@
 }
 
 @font-face {
+  font-family: "unscii";
+  src: url("/assets/fonts/unscii-16.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
   font-family: "Hack";
   src: url("/assets/fonts/Hack-Bold.ttf") format("truetype");
   font-style: normal;
@@ -942,4 +949,17 @@ footer h3 {
   box-sizing: border-box;
   margin-top: 1rem 0;
   display: block;
+}
+
+.unscii
+{
+  font-family: "unscii";
+}
+
+.unscii ul {
+  list-style: 'none';
+  margin: 0;
+}
+.unscii li {
+  margin: 0;
 }
