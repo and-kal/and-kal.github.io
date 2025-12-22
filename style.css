@@ -594,7 +594,7 @@ ul {
   suffix: " ";
 }
 
-#music ul {
+#music ul:not(.unscii) {
   list-style-type: fish;
   padding-left: 1.5rem;
 }
@@ -957,7 +957,7 @@ footer h3 {
 }
 
 ul.unscii {
-  list-style: 'none';
+  list-style-type: none;
   margin: 0;
 }
 ul.unscii li {
