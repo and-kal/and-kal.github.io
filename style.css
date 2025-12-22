@@ -956,10 +956,10 @@ footer h3 {
   font-family: "unscii";
 }
 
-.unscii ul {
+ul.unscii {
   list-style: 'none';
   margin: 0;
 }
-.unscii li {
+ul.unscii li {
   margin: 0;
 }
