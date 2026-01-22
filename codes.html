@@ -6,7 +6,7 @@ layout: _layout.liquid
   <div id="codes">
   <h1 style="margin-right:auto">TidalCycles code snippets</h1>
     <h2>Segfault</h2>
-    <sub>2025 EP on 
+    <sub>2026 EP on 
       <a
         href="https://soundcloud.com/bio-future-lab"
         target="_blank"
@@ -156,6 +156,313 @@ layout: _layout.liquid
         ]
         # s "midi"
         # cps tempo
+      {% endhighlightBlock %}
+    </div>
+    <h2>MemoryLeak</h2>
+    <sub>2026 album on 
+      <a
+        href="https://industriemusicale.org/staxl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >industrie musicale
+      </a>
+    </sub>
+    <div>
+      {% highlightBlock "haskell" %}
+        -- 1 GateAbstraction
+        d1
+        $ whenmod 8 1 ((slow 4) . (ply 8))
+        $ somecyclesBy (1/8) (# speed (-1)) 
+        $ somecyclesBy (1/8) (hurry 2) 
+        $ stack [
+            s "undefined:24" 
+            # cut 1
+            # end 0.5
+            # shape (range 0 0.85 $ cF 0 "32") 
+            # up (-12)
+            , 
+            cat [
+                s "[null:5 null:5 null:5 {kicky:0}%3 ~]" # cut 2 # gain 1.25 
+                , rarely (# up "[2|-1]") $ s "kicky:9?!4 undefined:4 kicky:9!2 Pikmin:32"
+                , loopAt 16 $ someCyclesBy (1/4) ((chop 128) . (striate 2)) $ s "null:4"
+            ]
+            , s "[~*2 undefined:13*3]" # up (-10.5)
+            , rarely (# up 3) $ s "minima:14*12" # cut 3 # pan (slow 2 $ smooth "-0.7 0.7") 
+        ] 
+        # cps(165/60/1)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 2 SubstitutionModel
+        let 
+          midiN chan = s "midi" # midichan (chan - 1) 
+          ccDis chan val = ccv val # ccn chan # s "midi" 
+          ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+        in
+        d1
+        $ someCyclesBy (1/2) ((1/8) ~>)
+        $ someCyclesBy (1/3) ((1/4) <~)
+        $ someCyclesBy (1/4) (rev)
+        $ someCyclesBy (1/6) (zoom (0, 0.875))
+        $ someCyclesBy (1/12) (zoom (0.125, 0.25))
+        $ stack 
+        [
+          someCyclesBy (1/3) (|+ n "[5]")
+          $ (|+ n "[7]")
+          $ n (scale "marva" "[0 _ _ _ _ 5 _ 7 _ _ 3 _ _ _ 2 4 _ _]/6") # midiN 1 # legato 2
+          , (|- n 24)
+          $ someCyclesBy (1/3) (fast 2) 
+          $ n "[0*[1|2|4] 1*[2|4]]" # midiN 2 -- ^ ki sn
+          , somecyclesBy (1/4) (fast "[0.5 1.5]")
+          $ degradeBy((1/3))
+          $ (|- n 24)
+          $ n "[2|3]*16" # midiN 2 -- ^ hect
+          , (|+ n (negate 24))
+          $ n "<~!4 4*2>" # midiN 2 -- ^ graineffclap
+          , always (|+ n (choose[0,3..12]))
+          $ n "-24?*8" # midiN 3 -- ^ gated 
+          , (|+ n (negate 24))
+          $ superimpose (|+ n "[+12, +24, +36, -7]")
+          $ n (scale "marva" "[0 4 5 7 3 2]/6") # midiN 4 # legato 2 -- ^ bass 
+          , ccDis 13 "<15!6 90!2>" -- ^ rev
+          , ccDis 25 "<0!7 64!2>" -- ^ delay on/off
+          , ccDis 26 "<0!7 [43]!2>" -- ^ delay time
+          , ccDis 27 "<127!2 0!6>" -- ^ grain d/w
+        ]
+          # cps(187/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 3 KernelCalls
+        let 
+          melody = "{0@3 1@4 2@3 3@4 4@3 5!3 ~@2 6@3 7@4 8@3 9@4 10@3 11!3 ~@2}%16"
+          pattern = "{0@3 1@4 0@3 0@4 0@3 1!3 2@2}%16"
+          hat = "{3@3 3@4 3@3 3@4 3@3 ~!3 3@2}%16"
+          midiN chan = s "midi" # midichan (chan - 1) 
+          ccDis chan val = ccv val # ccn chan # s "midi" 
+          ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+        in
+        d1
+        $ somecyclesBy (1/8) (brak)
+        $ whenmod 30 22 (slow "4 2 0.5 0.25")
+        $ 
+        stack [ 
+          (|- note "<41!3 36!3 29!3 24!3 12!3 0!3 7!3 12!3>")
+          $ never (|- note "7")
+          $ note (scale "hirajoshi" melody)
+          # s "midi" # midiN 1 -- ^ melody
+          , (|- note 24)
+          $ note (pattern <> hat)
+          # s "midi" # midiN 2 -- ^ percs
+          , (|- note "21")
+          $ whenmod 10 7 (fast 2)
+          $ note ("0*6")
+          # s "midi" # midiN 2 -- ^ lazer
+          , whenmod 11 9 (|- ccv 60) 
+          $ ccDis 10 "90" -- ^ lazer pitch
+        ]
+          # cps(152/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 4 MethodInvocation
+        let 
+          midiN chan = s "midi" # midichan (chan - 1) -- ^ MIDI channels in TC are 0-indexed 
+          ccDis chan val = ccv val # ccn chan # s "midi" -- ^ this one is patterning CC values (make sure to use `segment` when applying continuous patterns/oscillators)
+          ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+          ccDisrand1 chan val1 val2 = 
+            ccn chan 
+            # ccv (segment 50 (range val1 val2 $ rand)) 
+            # s "midi" -- ^ this one is for sending one random value per cycle
+          speedvari = cps (range (180/60/32) (180/60/0.5) $ slow 256 $ tri)
+        in
+        d1
+        $ stack [ 
+          n "-24" # midiN 1 -- ^ impactor
+          , ccDisrand1 1 40 100 -- ^ pitch
+          , ccDisrand1 2 0 127 -- ^ pan
+          , ccDisrand1 4 0 127 -- ^ reverse
+          , ccDisrand1 5 0 127 -- ^ delay
+          , ccDisrand1 6 0 127 -- ^ delaymode
+          , ccSeg 7 (range 80 30 $ slow 32 $ sine) -- ^ attack
+          , ccSeg 8 (range 100 120 $ slow 32 $ sine) -- ^ decay
+          , n "[-24,-23,-22,-21]" # midiN 2 # legato 0.125 -- ^ kick+perc
+          , ccDis 9 ("[20|40|60|90]") -- ^ perc release
+          , ccSeg 10 (range 60 120 $ perlin) -- ^ perc detune
+        ]
+        # speedvari 
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 5 ReifiedType
+        let repeater x = ((ply x) . (slow (x / 2)))
+        in
+        d9
+        $
+        someCyclesBy (1/4) (rev)
+        $
+        whenmod 32 29 (slow (segment 64 $ range 1 6 $ saw))
+        $
+        whenmod 40 36 (repeater 64)
+        $
+        sometimesBy (1/4) ((1/12) <~)
+        $
+        stack [
+          (|+ n (range 12 36 $ rand))
+          $ n (scale "octatonic" ("[~ [0 1 2]]!2")) # s "midi" # midichan 4 -- ^ reaktor
+          # legato 0.125
+          , ccn 25 # ccv (range 0 66 $ ((1 <~) $ rand)) # s "midi" -- ^ reaktor flanger wet
+          , ccn 26 # ccv (range 40 127 $ ((2 <~) $ rand)) # s "midi" -- ^ reaktor flanger
+          , ccn 27 # ccv (segment 6 $ range 0 127 $ saw) # s "midi" -- ^ reaktor pan
+          , n "[[0 ~!2 2!2 1?]!2 , 3*12]" # s "midi" # midichan 5 -- ^ drums
+          , sometimes (|+ n 3)
+          $ degradeBy (3/4) $ n (run 2) # s "midi" # midichan 6 # legato 0.75 -- ^ akaizer
+          , fast 2 $ ccn 37 # ccv (range 0 127 $ ((3 <~) $ rand)) # s "midi" -- ^ loop start
+          , somecyclesBy (1/8) (|+ n "[12|24]")
+          $ loopAt 4 $ n ("[c'min|f'min'ii]") # s "midi" # midichan 7 -- ^ pad surge
+          # legato 4
+        ]
+          # cps (135/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 6 FunctorLaws
+        let 
+          midiN chan = s "midi" # midichan (chan - 1) 
+          ccDis chan val = ccv val # ccn chan # s "midi" 
+          ccDisrand1 chan val1 val2 = 
+            ccn chan 
+            # ccv (segment 50 (range val1 val2 $ rand)) 
+            # s "midi" -- ^ this one is for sending one random value per cycle
+          ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+          basePat = "<0 [1 2] 2 [1 2 0] 1 2 [2 1]>*4"
+          var1 = whenmod 36 33 (zoom (1/4, 4)) 
+          var2 = whenmod 12 9 (fast "<1.25 1.5>")
+          var3 = whenmod 50 45 ((slow 8) . (ply 8))
+        in
+        d2
+        $ var1 $ var2 $ var3 
+        $ somecyclesBy (1/6) (rev)
+        $ stack [
+          whenmod 42 38 (degradeBy 1)
+          $ n (fit 1 [0..2] basePat) # midiN 5 -- ^ 0..2=kick + FX
+          , (0.5 <~) $ n "<~ 12 ~ 17>" # midiN 5 -- ^ 12=snare
+          , whenmod 6 8 (fast (3/4))
+          $ every 3 rev $ n "[0!3 ~ 2!4]*2" # midiN 6 -- ^ hat
+          , whenmod 32 16 (|+ ccv 90) $ ccn 31 # ccv 0 # s "midi" -- ^ add clicks half of the time
+          , ("[1|0]" <~) -- ^ introducing another randomness generator here, otherwise the two `choose` will always be in sync
+          $ ccn 27 # ccv (cycleChoose [0, 105]) # s "midi" -- ^ grain pitch
+          , ccn 30 # ccv (cycleChoose [30, 120]) # s "midi" -- ^ grain freq
+          , n (scale "harmonicMajor" $ (unwrap $ fit 0 ["c'min9", "gs'min9", "fs'min9"] basePat)) # midiN 8 -- ^ synth
+          , every 4 ((fast 4) . (|+ ccv (segment 32 $ range 10 127 $ rand))) $ ccn 43 # ccv 0 # s "midi" -- ^ grain freq
+        ]
+        # cps (161/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 7 IoSystem
+        let 
+          structure = mask "[10010 11100 10101 00101 01110]/2"
+          midiN chan = s "midi" # midichan (chan - 1) 
+          ccDis chan val = ccv val # ccn chan # s "midi" 
+          ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+        in
+        d1
+        $ somecyclesBy (1/3) (rev)
+        $ someCyclesBy (1/4) (rev)
+        $ someCyclesBy (1/6) (zoom (0, 0.875))
+        $ whenmod 18 15 (fastSqueeze "1 0.75")
+        $ someCyclesBy (1/4) ((1/4) <~)
+        $ whenmod 19 16 ((slow 2) . (brak))
+        $ whenmod 32 27 ((slow 1.5))
+        $ stack 
+        [
+          structure $ s "midi*12" # note "<0!2 2!2 -1!2>" # midichan (3-1) -- ^ kick
+          , degradeBy 0.66 $ mask "fffftf" $ n "2*6" # midiN 5 -- ^ swoosh
+          , mask "ffftff" $ n "3*6" # midiN 5 -- ^ clap
+          , n "1*12" # midiN 5 -- ^ hat
+          , n "0/12" # midiN 5 -- ^ sfx
+          , slow 4 
+          $
+          n (scale "yu" "<0 4 9 4 0 9>") # midiN 4 -- ^ fm
+          # legato 1
+          , ccSeg 13 (range 0 120 $ slow 8 $ sine) -- ^ kick osc3
+          , ccSeg 14 (range 0 120 $ slow 8 $ sine) -- ^ kick bloop dist
+          , ccDis 15 "<0 20 70 80 90>" -- ^ kick warp
+          , ccDis 25 "<120 10!5>" -- ^ swoosh chorus
+          , ccDis 25 "<0!5 120>" -- ^ swoosh spectral
+        ]
+          # cps(171/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 8 TheoryOfManifolds
+        let 
+          midiN chan = s "midi" # midichan (chan - 1) 
+          ccDisrand1 chan val1 val2 = 
+              ccn chan 
+              # ccv (segment 50 (range val1 val2 $ rand)) 
+              # s "midi"
+          ccSeg chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+          -- | creating a polyrhythm in TidalCycles mini-notation from a Collatz chain/sequence
+          myNotes = [ x | (a, b) <- zip (replicate 8 1) (replicate 8 0), x <- [a, b]]
+          collatzChain :: Integral t => t -> [t]
+          collatzChain 1 = [1]
+          collatzChain x
+              | (x `mod` 2) == 0 = x:collatzChain (x `div` 2)
+              | otherwise = x:collatzChain (x*3 + 1)
+          collatzZip y z = [show (a) ++ "@" ++ show (b) | (a, b) <- zip y z]
+          collatzBeat = parseBP_E("{" ++ unwords (collatzZip myNotes (collatzChain 17)) ++ "}%64")
+          -- collatzBeat = parseBP_E("[" ++ unwords (collatzZip myNotes (collatzChain 37)) ++ "]")
+        in 
+        d6
+        $ 
+        stack [
+            (|- n 24) $ n collatzBeat # midiN 5
+            , ccDisrand1 104 40 100 -- pitch
+            , ccDisrand1 105 0 127 -- pan
+            , ccDisrand1 106 30 90 -- vol
+            , ccDisrand1 107 0 127 -- reverse
+            , ccDisrand1 108 0 100 -- FX amount
+            , ccDisrand1 109 0 100 -- FX wetness
+            , ccv (segment 50 $ range 0 90 $ slow 16 $ (0.25 <~) $ sine) # ccn 110 # s "midi" -- attack
+            , ccv (segment 50 $ range 95 120 $ slow 16 $ sine) # ccn 111 # s "midi" -- decay
+            , ((3/6) ~>) $ n "-22" # midiN 5
+        ]
+        # cps (80/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 9 ApplicativeOrder
+        let pattern = "{0@2 0@8 1@4 0@6 1@6 0@6 2@2}%4"
+        in 
+        d4 
+        $ somecyclesBy (1/8) (rev)
+        $ whenmod 14 11 (linger (1/12))
+        $ stack [
+            someCyclesBy (1/8) (|+ n 7)
+            $ n (unwrap $ fmap (["c3","~","d3"]!!) $ pattern) # s "midi" # midichan 6 -- ^ Kick2 + Surge
+            , degradeBy 0.5 $ n (unwrap $ fmap (["~","[[~ c4]*16, [f3 ~]*16]","~"]!!) $ pattern) # s "midi" # midichan 7 -- ^ Hihat [hitick]
+            , n (unwrap $ fmap (["0","0*18","~"]!!) $ pattern) # s "midi" # midichan 14 -- ^ LEX-Snare
+            , somecyclesBy (1/4) (|+ n "[-2|12]")
+            $ n (scale "partch" (unwrap $ fmap (["c'7f5","~","f'7f5"]!!) $ pattern)) # s "midi" # midichan "[4|5]" -- ^ MI Plaits
+            # legato 0.5 
+            , ccv (segment 100 $ range 30 80 $ slow 8 $ sine) # ccn "[33,41]" # s "midi"
+            , ccv (segment 100 $ range 0 100 $ fast 2 $ sine) # ccn "[34,42]" # s "midi"
+            , ccv (segment 100 $ range 30 60 $ slow 4 $ sine) # ccn "[35,43]" # s "midi"
+            , ccv (segment 100 $ range 0 60  $ slow 8 $ sine) # ccn "[36,44]" # s "midi"
+            , ccv (segment 100 $ range 0 127 $ slow 8 $ tri) # ccn 49 # s "midi" -- ^ kick distortion
+            , ccv (segment 100 $ range 0 127 $ slow 16 $ sine) # ccn 50 # s "midi" -- ^ kick click pitch
+        ]
+        # cps(154/60/4)
+      {% endhighlightBlock %}
+      {% highlightBlock "haskell" %}
+        -- 10 ClassConstraints
+        let 
+          midiN chan = s "midi" # midichan (chan - 1) 
+          cc chan val = ccv (segment 50 $ val) # ccn chan # s "midi" 
+        in
+        d5 $ stack [
+            note "[0|3|-1]" # midiN 1 # legato 2 -- ^ 808 shards
+            , every 6 (|+ note 7) $ every 7 (|- note 19) $ note (overlay "[0,4,7,9,14]" ("[4,9]" |+ 12)) # midiN 2 # legato 2 -- ^ pad
+            , degrade $ sometimes (fast "[2 4]") $ (|- note 12) $ scramble 8 $ note "[0..7]" # midiN 3  -- ^ miniglitches
+            , cc 97 "<0!5 60>" -- ^ kick distortion 
+            , cc 105 (slow 12 $ range 0 100 $ sine) -- ^ panning
+            , cc 106 (range 70 127 $ rand) -- ^ pitch
+        ]
+        # cps (75/60/4)
       {% endhighlightBlock %}
     </div>
   </div>
