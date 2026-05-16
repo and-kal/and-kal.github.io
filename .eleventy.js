@@ -11,7 +11,7 @@ function getRSSContent(dataAsJson, field) {
         return a;
       }, "");
       const cleanedHtml = html.split("staxl ")[1] || html;
-      memo.push(`<div>${cleanedHtml}</div>`);
+      memo.push(`${cleanedHtml}`);
     }
     // get the latest 5 elements
     return memo.slice(0, 8);
@@ -76,7 +76,7 @@ module.exports = function (eleventyConfig) {
             return `<code>${div}</code>`;
           },
         );
-        return latestActivityElements;
+        return `<div>${latestActivityElements}</div>`;
       });
     return latest;
   });
