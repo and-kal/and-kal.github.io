@@ -76,7 +76,7 @@ module.exports = function (eleventyConfig) {
             return `<code>${div}</code>`;
           },
         );
-        return `<div>${latestActivityElements}</div>`;
+        return `${latestActivityElements}`;
       });
     return latest;
   });
