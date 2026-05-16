@@ -909,17 +909,14 @@ footer h3 {
 #now .activity h2 {
   margin-bottom: 1rem;
 }
-#now .activity#books .code code:nth-child(odd) {
-  color: #b48ead;
-}
-#now .activity#books .code code:nth-child(even) {
-  color: #ebcb8b;
-}
-#now .activity:not(#books) .code {
+
+#now .activity .code {
   display: inline-flex;
   align-items: start;
   flex-direction: column;
 }
+
+/* MOVIES */
 #now .activity#movies .code {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -937,7 +934,13 @@ footer h3 {
   object-fit: cover;
   display: block;
 }
-
+/* BOOKS */
+#now .activity#books .code code:nth-child(odd) {
+  color: #b48ead;
+}
+#now .activity#books .code code:nth-child(even) {
+  color: #ebcb8b;
+}
 #now sub,
 #now code {
   margin: 1rem 0;

@@ -71,11 +71,12 @@ module.exports = function (eleventyConfig) {
       .then((response) => response.text())
       .then((str) => {
         dataAsJson = JSON.parse(convert.xml2json(str));
-        const latestActivityElements = getRSSContent(dataAsJson, "title").map(
-          (div) => {
-            return `<code>${div}</code>`;
-          },
-        );
+        const latestActivityElements = getRSSContent(
+          dataAsJson,
+          "title",
+        ).reduce((acc, curr) => {
+          return (acc += `<code>${curr}</code>`);
+        }, "");
         return `${latestActivityElements}`;
       });
     return latest;
