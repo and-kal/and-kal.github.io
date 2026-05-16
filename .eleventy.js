@@ -46,24 +46,21 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addLiquidShortcode("letterboxd", async function () {
     const convert = require("xml-js");
-    /* get latest items via RSS */
     const RSS_URL = `https://letterboxd.com/staxl/rss`;
 
-    const latest = await fetch(RSS_URL)
-      .then((response) => response.text())
-      .then((str) => {
-        dataAsJson = JSON.parse(convert.xml2json(str));
-        const latestActivityElements = getRSSContent(dataAsJson, "description")
-          .filter((div) => {
-            // only show elements with an image
-            return /<img src/gi.test(div);
-          })
-          .map((div) => {
-            return `<code>${div}</code>`;
-          });
-        return latestActivityElements;
+    const str = await fetch(RSS_URL).then((r) => r.text());
+    const dataAsJson = JSON.parse(convert.xml2json(str));
+
+    const descriptions = getRSSContent(dataAsJson, "description");
+    const links = getRSSContent(dataAsJson, "link");
+
+    return descriptions
+      .map((desc, i) => ({ desc, link: links[i] }))
+      .filter(({ desc }) => /<img src/i.test(desc))
+      .map(({ desc, link }) => {
+        const img = desc.match(/<img[^>]+\/?>/)?.[0] ?? "";
+        return `<a href="${link}" target="_blank" rel="noopener noreferrer">${img}</a>`;
       });
-    return latest;
   });
   eleventyConfig.addLiquidShortcode("bookwyrm", async function () {
     const convert = require("xml-js");
@@ -77,7 +74,7 @@ module.exports = function (eleventyConfig) {
         const latestActivityElements = getRSSContent(dataAsJson, "title").map(
           (div) => {
             return `<code>${div}</code>`;
-          }
+          },
         );
         return latestActivityElements;
       });
@@ -124,7 +121,7 @@ module.exports = function (eleventyConfig) {
     "highlightBlock",
     function (content, language) {
       return pairedShortcode(content, language || "plaintext");
-    }
+    },
   );
   return {
     passthroughFileCopy: true,
