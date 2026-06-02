@@ -34,6 +34,13 @@
 }
 
 @font-face {
+  font-family: "unscii";
+  src: url("/assets/fonts/unscii-16.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
   font-family: "Hack";
   src: url("/assets/fonts/Hack-Bold.ttf") format("truetype");
   font-style: normal;
@@ -508,6 +515,9 @@ body {
   top: 60rem;
   right: 2rem;
 }
+#main-container main .featuredGif#pelican {
+  margin: auto;
+}
 
 #main-container main .featuredGif img {
   max-height: 66px;
@@ -570,7 +580,9 @@ a {
 a:hover {
   color: var(--secondary);
   background-color: var(--primary);
-  transition: color 0.125s, background-color 0.125s;
+  transition:
+    color 0.125s,
+    background-color 0.125s;
 }
 
 ul {
@@ -709,22 +721,28 @@ section.projects > ul li a {
   font-family: "Runescape Fancy";
 }
 
-#music ul {
-  /* display: grid; */
-  gap: var(--fsz);
-  /* grid-template-columns: 1fr 1fr; */
+@counter-style fish {
+  system: cyclic;
+  symbols: "𓆝" "𓆟" "𓆞" "𓆝" "𓆟";
+  suffix: " ";
 }
 
-#music ul li {
+#music ul:not(.unscii) {
+  gap: var(--fsz);
+  list-style-type: fish;
+  padding-left: 1.5rem;
+}
+
+#music ul:not(.unscii) li {
   margin: 1rem 0;
 }
-#music ul li a:hover {
+#music ul:not(.unscii) li a:hover {
   background-color: var(--secondary);
   color: var(--primary);
   cursor: pointer;
 }
 
-#music ul li p {
+#music ul:not(.unscii) li p {
   margin: 0;
 }
 
@@ -771,6 +789,12 @@ section.projects > ul li a {
   margin: 1rem 0;
 }
 
+.codes h1 {
+  width: auto;
+  margin: 0;
+  text-align: center;
+}
+
 footer {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -783,7 +807,7 @@ footer {
   background-color: var(--black);
 }
 
-#code {
+.code {
   height: auto;
   padding: 0.5rem;
   margin: 0.5rem 0;
@@ -793,11 +817,11 @@ footer {
   text-align: left;
 }
 
-footer #email #code {
+footer #email .code {
   background-color: var(--primary);
 }
 
-#code code {
+.code code {
   color: var(--white);
   font-family: "Shaston", monospace;
   font-size: 1.5rem;
@@ -885,25 +909,38 @@ footer h3 {
 #now .activity h2 {
   margin-bottom: 1rem;
 }
-#now .activity:not(#books) #code {
+
+#now .activity .code {
   display: inline-flex;
   align-items: start;
-}
-#now .activity:not(#books) #code div {
-  display: inline-flex;
-  align-items: center;
-}
-#now .activity#music #code,
-#now .activity#movies #code {
   flex-direction: column;
 }
-#now .activity div > p:not(:first-child) {
-  margin-left: 1rem;
-}
-#now .activity img {
-  max-height: 150px;
-}
 
+/* MOVIES */
+#now .activity#movies .code {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem;
+}
+#now .activity#movies .code > a {
+  display: block;
+}
+#now .activity#movies .code > a:has(img) {
+  border-bottom: none;
+}
+#now .activity#movies .code img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+/* BOOKS */
+#now .activity#books .code code:nth-child(odd) {
+  color: #b48ead;
+}
+#now .activity#books .code code:nth-child(even) {
+  color: #ebcb8b;
+}
 #now sub,
 #now code {
   margin: 1rem 0;
@@ -922,4 +959,16 @@ footer h3 {
   box-sizing: border-box;
   margin-top: 1rem 0;
   display: block;
+}
+
+.unscii {
+  font-family: "unscii";
+}
+
+ul.unscii {
+  list-style-type: none;
+  margin: 0;
+}
+ul.unscii li {
+  margin: 0;
 }

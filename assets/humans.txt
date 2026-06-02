@@ -1,8 +1,7 @@
+Site: https://shin-ra.neocities.org
+
 /* TEAM */         
-Developer: André
-Site: https://and-kal.github.io
 Mastodon: @staxl@sonomu.club 
-Location: Leipzig, Germany
 
 /* SITE */
 Last update: 2023/03/30
