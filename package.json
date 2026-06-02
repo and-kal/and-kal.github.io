@@ -1,7 +1,7 @@
 {
-  "name": "and-kal.github.io",
+  "name": "and-kal.neocities.org",
   "version": "2.1.0",
-  "description": "Hi 👋, I'm André and this is my page.",
+  "description": "this is my page",
   "main": "index.html",
   "scripts": {
     "build": "npx @11ty/eleventy",
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/and-kal/and-kal.github.io/issues"
   },
-  "homepage": "https://and-kal.github.io",
+  "homepage": "https://shin-ra.neocities.org",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
   },
