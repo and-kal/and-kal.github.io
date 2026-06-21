@@ -32,6 +32,12 @@
   font-style: normal;
   font-weight: normal;
 }
+@font-face {
+  font-family: "Gallant";
+  src: url("/assets/fonts/gallant.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 
 @font-face {
   font-family: "unscii";
@@ -675,7 +681,7 @@ header nav > a#imprint {
   gap: 1rem;
 }
 
-#intro p span {
+.symbols {
   color: var(--secondary);
   font-family: "Cairo";
   text-align: center;
@@ -719,6 +725,9 @@ section.projects > ul li a {
 
 .fancy {
   font-family: "Runescape Fancy";
+}
+.gallant {
+  font-family: "Gallant";
 }
 
 @counter-style fish {

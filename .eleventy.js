@@ -31,7 +31,7 @@ module.exports = function (eleventyConfig) {
         <a ${fileslug === "now" ? "class='active'" : ""} href="/now">Now</a>
         <a ${
           fileslug === "blog" ? "class=''" : ""
-        } href="/second-brain">Blog</a>
+        } href="https://and-kal.github.io/second-brain/">Blog</a>
         <a ${
           fileslug === "livecoding" ? "class='active'" : ""
         } href="/livecoding">Livecoding</a>
@@ -39,9 +39,6 @@ module.exports = function (eleventyConfig) {
           fileslug === "music" ? "class='active'" : ""
         } href="/music">Music</a>
         <a ${fileslug === "dev" ? "class='active'" : ""} href="/dev">Dev</a>
-        <a ${
-          fileslug === "imprint" ? "class='active'" : ""
-        } id="imprint" href="/imprint">Imprint</a>
       `;
   });
   eleventyConfig.addLiquidShortcode("letterboxd", async function () {
