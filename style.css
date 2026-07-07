@@ -45,6 +45,12 @@ https://codepen.io/daeva-the-sleepy/pen/YPNGGmv
   font-style: normal;
   font-weight: normal;
 }
+@font-face {
+  font-family: "Gallant";
+  src: url("/assets/fonts/gallant12x22.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 
 @font-face {
   font-family: "unscii";
@@ -104,7 +110,7 @@ https://codepen.io/daeva-the-sleepy/pen/YPNGGmv
 :root {
   --black: #121212;
   --white: #f8f6f6;
-  --primary: #6220b4;
+  --primary: #140024;
   --secondary: #2ff3ef;
   --tertiary: #2215d3;
   /* --quaternary: rgb(255, 235, 123); */
@@ -183,6 +189,11 @@ body {
 
 img {
   max-width: 100%;
+}
+img.compact {
+  width: 400px;
+  display: block;
+  margin: 1rem 0;
 }
 
 @keyframes walk {
@@ -379,11 +390,14 @@ section.projects > ul li a {
   background-color: var(--primary);
 }
 
-.fancy {
+.runescape {
   font-family: "Runescape Fancy";
 }
 .norns {
   font-family: "norns";
+}
+.gallant {
+  font-family: "Gallant";
 }
 
 @counter-style fish {
@@ -539,7 +553,7 @@ footer h3 {
 }
 
 #copyright {
-  color: var(--primary);
+  color: var(--tertiary);
   text-align: center;
   width: fit-content;
   margin: auto;
