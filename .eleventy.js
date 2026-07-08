@@ -39,6 +39,7 @@ module.exports = function (eleventyConfig) {
           fileslug === "music" ? "class='active'" : ""
         } href="/music">Music</a>
         <a ${fileslug === "dev" ? "class='active'" : ""} href="/dev">Dev</a>
+        <a ${fileslug === "shop" ? "class='active'" : ""} href="/shop">Shop</a>
       `;
   });
   eleventyConfig.addLiquidShortcode("letterboxd", async function () {
