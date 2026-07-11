@@ -693,3 +693,9 @@ ul.unscii li {
 #shop-container img {
   max-width: unset;
 }
+
+/* ~~~~~ LW ~~~~~~ */
+
+#lebenswelt {
+  text-align: left;
+}
