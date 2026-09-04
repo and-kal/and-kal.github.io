@@ -31,14 +31,13 @@ module.exports = function (eleventyConfig) {
         <a ${fileslug === "now" ? "class='active'" : ""} href="/now">Now</a>
         <a ${
           fileslug === "blog" ? "class=''" : ""
-        } href="https://and-kal.github.io/second-brain/">Blog</a>
+        } href="https://and-kal.github.io/second-brain/">Blog🔗</a>
         <a ${
           fileslug === "livecoding" ? "class='active'" : ""
         } href="/livecoding">Livecoding</a>
         <a ${
           fileslug === "music" ? "class='active'" : ""
         } href="/music">Music</a>
-        <a ${fileslug === "dev" ? "class='active'" : ""} href="/dev">Dev</a>
         <a ${fileslug === "shop" ? "class='active'" : ""} href="/shop">Shop</a>
       `;
   });
