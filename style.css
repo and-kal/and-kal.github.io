@@ -704,11 +704,11 @@ ul.unscii li {
   max-width: unset;
 }
 
-.yrotate {
+.zrotate {
   transition-property: transform;
   transition-duration: 1s;
 }
-.yrotate:hover {
+.zrotate:hover {
   animation-name: rotate;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -729,10 +729,10 @@ ul.unscii li {
 
 @keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform: rotateZ(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateZ(360deg);
   }
 }
 
