@@ -1,0 +1,317 @@
+@font-face {
+  font-family: "wingdings";
+  src: url("/assets/fonts/wingding.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "pixel basiic";
+  src: url("/assets/fonts/basiic.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "pixel heart";
+  src: url("/assets/fonts/heartfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "pixel romance";
+  src: url("/assets/fonts/RomanceA.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "chicago";
+  src: url("/assets/fonts/Chicago-Normal.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "cherrybomb";
+  src: url("/assets/fonts/Cherrybomb.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "blox";
+  src: url("/assets/fonts/Blox2.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "mrs monster";
+  src: url("/assets/fonts/mrsmonster.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "trash hand";
+  src: url("/assets/fonts/TrashHand.TTF") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "flavors";
+  src: url("/assets/fonts/Flavors-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "baby doll";
+  src: url("/assets/fonts/Baby-Doll.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "BPdots";
+  src: url("/assets/fonts/BPdots.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Runescape Fancy";
+  src: url("/assets/fonts/runescape-fancy.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "norns";
+  src: url("/assets/fonts/norns.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Gallant";
+  src: url("/assets/fonts/gallant12x22.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "unscii";
+  src: url("/assets/fonts/unscii-16.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-BoldItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* @font-face {
+  font-family: "Cordata400";
+  src: url("/assets/fonts/Web437_Cordata_PPC-400.woff") format("woff");
+  font-weight: 400;
+} */
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/assets/fonts/Cairo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Shaston";
+  src: url("/assets/fonts/ShastonHi640.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Magica";
+  src: url("/assets/fonts/theheart.ttf");
+  font-display: swap;
+}
+
+:root {
+  --black: #121212;
+  --white: #f8f6f6;
+  --primary: #140024;
+  --secondary: #2ff3ef;
+  --tertiary: #2215d3;
+  /* --quaternary: rgb(255, 235, 123); */
+  /* --gray: #585858; */
+  --fsz: calc(0.9em + 0.125vw);
+}
+
+html,
+body {
+  position: relative;
+  scroll-behavior: smooth;
+  font-size: var(--fsz);
+  line-height: calc(var(--fsz) * 1.75);
+  font-family: "Hack";
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  background-image: url(/assets/images/background2.gif);
+  background-repeat: repeat;
+  background-size: 5%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+}
+
+.box-1 {
+  background-image: url(/assets/images/glitchbg.png);
+  animation: scroll 60s linear infinite;
+  background-repeat: repeat;
+  background-size: 10%;
+  min-width: fit-content;
+  width: 500px;
+  color: black;
+  border: 5px double black;
+  margin: 0px 0px 15px 0px;
+  font-family: "Magica";
+}
+
+.box-1 h2 {
+  background: #ff02e6;
+  margin: 0;
+  color: #eeeeee;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  text-align: center;
+  border-bottom: 2px solid black;
+  word-break: normal;
+}
+.box-1 p {
+  background: #fee0fb;
+  text-align: center;
+  font-family: "unscii";
+  width: fit-content;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
+.box-2 {
+  border: 3px ridge #f896c8;
+  box-shadow: 0 2px 6px #f896c880;
+  color: #272426;
+  background-color: #e8e3ef;
+  width: fit-content;
+  display: flex;
+  padding: 0.5rem;
+  flex-flow: column;
+  background-image: url(/assets/images/bubbles.gif);
+  background-repeat: repeat;
+  background-size: 5%;
+}
+
+.box-3 {
+  border: 3px ridge #f896c8;
+  box-shadow: 0 2px 6px #f896c880;
+  color: #3e0622;
+  background-image: url(/assets/images/mapy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: fit-content;
+  display: flex;
+  padding: 0.5rem;
+  flex-flow: column;
+}
+.box-3 div {
+  background: #fee0fb;
+  text-align: center;
+  font-family: "unscii";
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.box-4 {
+  background-image: url(/assets/images/sponge.JPG);
+  background-repeat: repeat;
+  background-size: 5%;
+  padding: 1rem;
+  font-family: "cherrybomb";
+  max-width: 80vw;
+  background-color: white;
+  border: 5px double pink;
+}
+
+.the-glow {
+  text-shadow: rgba(255, 251, 245, 0.9) 0px 0px 6px;
+}
+.the-dark {
+  text-shadow: rgba(0, 0, 0, 0.9) 2px 2px 1px;
+}
+.romance {
+  font-family: "pixel romance";
+}
+.wingdings {
+  font-family: "wingdings";
+}
+.mrs-monster {
+  font-family: "mrs monster";
+}
+.heart {
+  font-family: "pixel heart";
+}
+
+@keyframes scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.dot {
+  animation: 1s blink infinite;
+}
+.dot:nth-child(2) {
+  animation-delay: 250ms;
+}
+.dot:nth-child(3) {
+  animation-delay: 500ms;
+}
+
+@keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
