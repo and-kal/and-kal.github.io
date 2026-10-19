@@ -72,6 +72,12 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Magica";
+  src: url("/assets/fonts/theheart.ttf");
+  font-display: swap;
+}
+
 :root {
   --black: #121212;
   --white: #f8f6f6;
@@ -103,6 +109,7 @@ body {
 
 .box {
   background-image: url(/assets/images/glitchbg.png);
+  animation: scroll 60s linear infinite;
   background-repeat: repeat;
   background-size: 10%;
   color: black;
@@ -122,4 +129,19 @@ body {
   text-align: center;
   border-bottom: 2px solid black;
   word-break: normal;
+}
+
+.pink-border {
+  border: 3px ridge #f896c8;
+  box-shadow: 0 2px 6px #f896c880;
+  background-color: #fff7fb;
+}
+
+@keyframes scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
 }
