@@ -1,4 +1,4 @@
-Site: https://staxl.neocities.org
+Site: https://shin-ra.nekoweb.org
 
 /* TEAM */         
 Mastodon: @staxl@sonomu.club 
