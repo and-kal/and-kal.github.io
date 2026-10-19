@@ -56,7 +56,7 @@
 
 @font-face {
   font-family: "trash hand";
-  src: url("/assets/fonts/TrashHand.TTF") format("truetype");
+  src: url("/assets/fonts/TrashHand.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
@@ -177,7 +177,7 @@ body {
   position: relative;
   scroll-behavior: smooth;
   font-size: var(--fsz);
-  line-height: calc(var(--fsz) * 1.75);
+  line-height: calc(var(--fsz) * 1.25);
   font-family: "Hack";
   font-style: normal;
   font-weight: normal;
@@ -208,6 +208,7 @@ body {
 .box-1 h2 {
   background: #ff02e6;
   margin: 0;
+  padding: 0.25rem;
   color: #eeeeee;
   text-shadow:
     -1px -1px 0 #000,
@@ -221,7 +222,6 @@ body {
 .box-1 p {
   background: #fee0fb;
   text-align: center;
-  font-family: "unscii";
   width: fit-content;
   margin: 1rem auto;
   padding: 1rem;
@@ -253,7 +253,8 @@ body {
   padding: 0.5rem;
   flex-flow: column;
 }
-.box-3 div {
+.box-3 div,
+.box-3 ul {
   background: #fee0fb;
   text-align: center;
   font-family: "unscii";
@@ -261,11 +262,18 @@ body {
   margin: 1rem auto;
 }
 
+.box-3 ul {
+  font-family: "chicago";
+  text-align: left;
+  list-style-type: none;
+}
+
 .box-4 {
   background-image: url(/assets/images/sponge.JPG);
   background-repeat: repeat;
   background-size: 5%;
   font-family: "cherrybomb";
+  font-size: 1.5rem;
   max-width: 80vw;
   background-color: white;
   border: 5px double pink;
@@ -274,6 +282,7 @@ body {
 .box-4 h2 {
   background: #eaff00;
   margin: 0;
+  padding: 0.75rem;
   color: #170628;
   text-shadow:
     -1px -1px 0 #fff,
@@ -302,6 +311,12 @@ body {
 }
 .heart {
   font-family: "pixel heart";
+}
+.trash-hand {
+  font-family: "trash hand";
+}
+.baby-doll {
+  font-family: "baby doll";
 }
 
 @keyframes scroll {
