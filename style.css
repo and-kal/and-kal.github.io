@@ -735,6 +735,30 @@ ul.unscii li {
     transform: rotateZ(360deg);
   }
 }
+@keyframes wavy {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5%) translate(5%) skew(-5deg);
+  }
+  75% {
+    transform: translateY(-5%) translate(-5%);
+  }
+}
+
+.wavy a {
+  animation-name: wavy;
+  animation-delay: calc(var(--i) * 20ms);
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: inline-block;
+  position: relative;
+  border-bottom: none;
+  white-space: pre;
+}
 
 /* ~~~~~ LW ~~~~~~ */
 
